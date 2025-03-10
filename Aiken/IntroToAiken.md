@@ -86,7 +86,7 @@ Aiken follows the functional programming paradigm, which emphasizes:
 
 ### Pure Functions
 
-As mentioned earlier, functions in Aiken are pure, meaning:
+Functions in Aiken are pure, meaning:
 
 1. **Deterministic**: Given the same input, they always produce the same output.
 2. **No side effects**: They don't modify state outside their scope, make network calls, etc.
