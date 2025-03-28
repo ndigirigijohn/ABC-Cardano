@@ -1,0 +1,7 @@
+{
+    "imports": {
+      "lucid-cardano": "npm:lucid-cardano@0.10.7",
+      "std/": "https://deno.land/std@0.204.0/",
+      "dotenv": "https://deno.land/std@0.204.0/dotenv/mod.ts"
+    }
+  }
