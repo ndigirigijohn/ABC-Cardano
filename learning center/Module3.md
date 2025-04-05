@@ -2,7 +2,7 @@
 
 In this module, you'll bridge the gap between on-chain smart contracts and off-chain applications. You'll learn how to build, sign, and submit transactions to the Cardano blockchain, integrate wallets into web applications, and create comprehensive user interfaces for your dApps.
 
-![Transactions and Off-Chain Integration](/image/transactions-offchain.jpg)
+![Transactions and Off-Chain Integration](https://placehold.co/600x400)
 
 ## 3.1 Transaction Building with cardano-cli
 
@@ -33,7 +33,7 @@ A Cardano transaction consists of these key components:
 - Native script metadata
 - Plutus script metadata
 
-![Transaction Structure](/image/transaction-components.png)
+![Transaction Structure](https://placehold.co/600x400)
 
 ### Installing cardano-cli
 
@@ -209,7 +209,7 @@ Mesh SDK is a comprehensive library for building Cardano applications:
 - Stake pool operations
 - GraphQL API for chain queries
 
-![Mesh SDK Architecture](/image/mesh-sdk-architecture.jpg)
+![Mesh SDK Architecture](https://placehold.co/600x400)
 
 ### Setting Up Mesh SDK
 
@@ -523,7 +523,7 @@ A typical Cardano dApp backend includes:
 - Monitoring and analytics
 - Authentication (optional)
 
-![Backend Architecture](/image/backend-architecture.png)
+![Backend Architecture](https://placehold.co/600x400)
 
 ### Setting Up a Node.js Backend
 
@@ -1129,7 +1129,7 @@ Follow these guidelines for successful deployments:
    - Provide clear instructions for interaction
    - Explain expected behavior and failure modes
 
-![Deployment Workflow](/image/deployment-workflow.jpg)
+![Deployment Workflow](https://placehold.co/600x400)
 
 ### Key Resources:
 - [Reference Scripts Documentation](https://docs.cardano.org/plutus/reference-scripts)

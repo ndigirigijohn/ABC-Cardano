@@ -2,7 +2,7 @@
 
 In this module, you'll build a solid foundation in blockchain concepts, understand what makes Cardano unique, and set up a complete development environment for creating Cardano applications.
 
-![Cardano Development Environment](/image/cardano-dev-environment.jpg)
+![Cardano Development Environment](https://placehold.co/600x400)
 
 ## 1.1 Understanding Blockchain Technology
 
@@ -28,7 +28,7 @@ Blockchain technology has evolved through three generations, each addressing lim
 - Proof-of-stake consensus with significantly lower energy usage
 - Extended UTxO model for deterministic smart contracts
 
-![Blockchain Generations](/image/blockchain-generations.png)
+![Blockchain Generations](https://placehold.co/600x400)
 
 ### The Blockchain Trilemma
 
@@ -77,7 +77,7 @@ This separation provides several advantages:
 2. Settlement layer remains stable while computation features evolve
 3. Better overall performance and security isolation
 
-![Cardano Architecture Layers](/image/cardano-layers.jpg)
+![Cardano Architecture Layers](https://placehold.co/600x400)
 
 ### Ouroboros Proof-of-Stake
 
@@ -135,7 +135,7 @@ Cardano uses the Extended Unspent Transaction Output (eUTxO) model, which signif
 - Contextual information provided during validation
 - Redeemer data sent when attempting to spend
 
-![eUTxO Transaction Model](/image/eutxo-model.png)
+![eUTxO Transaction Model](https://placehold.co/600x400)
 
 ### eUTxO vs. Account Model
 
@@ -176,7 +176,7 @@ Understanding these differences is crucial for effective Cardano development. Th
 
 Creating a productive Cardano development environment involves installing several key tools and configuring them to work together seamlessly.
 
-![Development Environment Components](/image/dev-environment-components.jpg)
+![Development Environment Components](https://placehold.co/600x400)
 
 ### Installing Required Tools
 
@@ -249,7 +249,7 @@ For an optimal development experience, configure Visual Studio Code:
    - Create a new Aiken file with `.ak` extension
    - Check for syntax highlighting and auto-completion
 
-![VS Code with Aiken extension](/image/vscode-aiken.jpg)
+![VS Code with Aiken extension](https://placehold.co/600x400)
 
 ### Cardano Node (Optional)
 

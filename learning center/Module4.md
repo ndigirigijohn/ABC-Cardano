@@ -2,7 +2,7 @@
 
 In this final module, you'll apply everything you've learned to build a complete decentralized application on Cardano. You'll implement advanced contract patterns, create responsive user interfaces, optimize for performance and security, and deploy a production-ready dApp.
 
-![Complete DApp Development](/image/complete-dapp.jpg)
+![Complete DApp Development](https://placehold.co/600x400)
 
 ## 4.1 Advanced Contract Patterns
 
@@ -99,7 +99,7 @@ The state machine pattern allows you to:
 - Maintain a history of state changes
 - Model complex business processes
 
-![State Machine Diagram](/image/state-machine.png)
+![State Machine Diagram](https://placehold.co/600x400)
 
 ### Multi-Party Contracts
 
@@ -364,7 +364,7 @@ export function useContractData(scriptAddress: string) {
 }
 ```
 
-![Responsive UI Architecture](/image/responsive-ui.jpg)
+![Responsive UI Architecture](https://placehold.co/600x400)
 
 ### Wallet Connection Best Practices
 
@@ -711,7 +711,7 @@ A good transaction flow includes:
 - Error handling and recovery
 - Cancel/retry options
 
-![Transaction Flow](/image/transaction-flow.png)
+![Transaction Flow](https://placehold.co/600x400)
 
 ### Error Handling and Edge Cases
 
@@ -882,7 +882,7 @@ validator(contract_params: ByteArray) {
 }
 ```
 
-![Security Vulnerabilities](/image/security-vulnerabilities.png)
+![Security Vulnerabilities](https://placehold.co/600x400)
 
 ### Execution Cost Optimization
 
@@ -995,7 +995,7 @@ Follow these security best practices:
 - Create incident response procedures
 - Regularly update dependencies
 
-![Security Best Practices](/image/security-best-practices.png)
+![Security Best Practices](https://placehold.co/600x400)
 
 ### Key Resources:
 - [Cardano Smart Contract Security](https://developers.cardano.org/docs/governance/cardano-improvement-proposals/security-considerations/)
@@ -1058,7 +1058,7 @@ Let's outline the architecture for our NFT Marketplace:
 - Listing Management: Create and manage listings
 - Purchase Flow: Handles buying NFTs
 
-![DApp Architecture](/image/dapp-architecture.png)
+![DApp Architecture](https://placehold.co/600x400)
 
 ### Implementing the Smart Contracts
 

@@ -2,7 +2,7 @@
 
 In this module, you'll dive deep into Aiken programming and smart contract development on Cardano. Building on the fundamentals from Module 1, you'll learn how to create, test, and deploy various types of validators for real-world use cases.
 
-![Aiken Smart Contract Development](/image/aiken-smart-contracts.jpg)
+![Aiken Smart Contract Development](https://placehold.co/600x400)
 
 ## 2.1 Deep Dive into the eUTxO Model
 
@@ -37,7 +37,7 @@ A Cardano transaction consists of several key components:
 - Specified as slot numbers or POSIX time
 - Enables time-based contract conditions
 
-![Detailed Transaction Structure](/image/transaction-structure.png)
+![Detailed Transaction Structure](https://placehold.co/600x400)
 
 ### Script Execution Process
 
@@ -132,7 +132,7 @@ type Action {
 - Type inference for cleaner code
 - Generic types for reusable components
 
-![Aiken Type System Examples](/image/aiken-types.jpg)
+![Aiken Type System Examples](https://placehold.co/600x400)
 
 ### Functions and Control Flow
 
@@ -339,7 +339,7 @@ validator {
 }
 ```
 
-![Validator Types](/image/validator-types.png)
+![Validator Types](https://placehold.co/600x400)
 
 ### Building a Spending Validator
 
@@ -600,7 +600,7 @@ aiken check -v
 aiken check tests/vesting_test.ak
 ```
 
-![Testing Output](/image/aiken-testing.jpg)
+![Testing Output](https://placehold.co/600x400)
 
 ### Key Resources:
 - [Aiken Testing Guide](https://aiken-lang.org/language-tour/testing)
