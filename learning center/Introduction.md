@@ -4,7 +4,7 @@
 
 This learning center provides a structured path to becoming proficient in Cardano blockchain development using Aiken. Whether you're a blockchain enthusiast or an experienced developer looking to expand your skills, this course will equip you with the knowledge to build, deploy, and maintain decentralized applications on Cardano.
 
-![Cardano and Aiken logos](/image/cardano-aiken-banner.jpg)
+![Cardano and Aiken logos](https://raw.githubusercontent.com/aiken-lang/branding/main/assets/logo-light.png)
 
 ## What You'll Learn
 
@@ -37,7 +37,7 @@ Cardano offers significant advantages for blockchain developers:
 - **Scalability Solutions**: Hydra and other layer-2 solutions for high throughput
 - **Growing Ecosystem**: Expanding community of developers and users
 
-![Cardano ecosystem growth](/image/cardano-ecosystem-growth.png)
+![Cardano ecosystem growth](https://ucarecdn.com/ff24706e-4aa8-4b7b-a44c-798b7cc5345b/)
 
 ## Prerequisites
 
