@@ -57,7 +57,7 @@ Ready to begin your journey into Cardano development? Start with Module 1 to und
 
 While this learning center is designed for self-paced learning, we also offer a 4-week workshop series covering the same material with expert instructors, hands-on activities, and collaborative projects. The workshop series is ideal for those who prefer structured learning and direct guidance.
 
-Learn more about our upcoming workshops at [cardano-workshops.io](https://www.africanblockchamp.com/).
+Learn more about our upcoming workshops at [https://www.africanblockchamp.com/](https://www.africanblockchamp.com/).
 
 ## Additional Resources
 
