@@ -4,6 +4,53 @@ In this module, you'll dive deep into Aiken programming and smart contract devel
 
 ![Aiken Smart Contract Development](https://placehold.co/600x400)
 
+## Module Structure
+
+### 2.1 [Deep Dive into the eUTxO Model](#21-deep-dive-into-the-eutxo-model)
+- [Transaction Structure in Detail](#transaction-structure-in-detail)
+- [Script Execution Process](#script-execution-process)
+- [State Management in eUTxO](#state-management-in-eutxo)
+- [Key Resources](#key-resources)
+
+### 2.2 [Aiken Language Fundamentals](#22-aiken-language-fundamentals)
+- [Type System](#type-system)
+- [Functions and Control Flow](#functions-and-control-flow)
+- [Working with Lists and Data](#working-with-lists-and-data)
+- [Key Resources](#key-resources-1)
+
+### 2.3 [Writing Validators in Aiken](#23-writing-validators-in-aiken)
+- [Validator Structure](#validator-structure)
+- [Types of Validators](#types-of-validators)
+- [Building a Spending Validator](#building-a-spending-validator)
+- [Creating a Minting Policy](#creating-a-minting-policy)
+- [Parameterized Contracts](#parameterized-contracts)
+- [Key Resources](#key-resources-2)
+
+### 2.4 [Testing Smart Contracts](#24-testing-smart-contracts)
+- [Unit Testing Basics](#unit-testing-basics)
+- [Creating Test Contexts](#creating-test-contexts)
+- [Testing Strategies](#testing-strategies)
+- [Running Tests](#running-tests)
+- [Key Resources](#key-resources-3)
+
+### 2.5 [Advanced Contract Patterns](#25-advanced-contract-patterns)
+- [State Machines](#state-machines)
+- [Multi-Party Contracts](#multi-party-contracts)
+- [Oracle Integration](#oracle-integration)
+- [Handling Time Constraints](#handling-time-constraints)
+- [Key Resources](#key-resources-4)
+
+### [Practice Exercises](#practice-exercises)
+- [Basic Spending Validator](#basic-spending-validator)
+- [NFT Minting Policy](#nft-minting-policy)
+- [State Machine Contract](#state-machine-contract)
+- [Multi-Party Escrow](#multi-party-escrow)
+- [Extended Challenge](#extended-challenge)
+
+### [Next Steps](#next-steps)
+
+### [Additional Resources](#additional-resources)
+
 ## 2.1 Deep Dive into the eUTxO Model
 
 Before writing advanced smart contracts, it's essential to understand how the eUTxO model influences contract design and execution.

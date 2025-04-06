@@ -4,6 +4,63 @@ In this module, you'll bridge the gap between on-chain smart contracts and off-c
 
 ![Transactions and Off-Chain Integration](https://placehold.co/600x400)
 
+## Module Structure
+
+### 3.1 [Transaction Building with cardano-cli](#31-transaction-building-with-cardano-cli)
+- [Transaction Architecture](#transaction-architecture)
+- [Installing cardano-cli](#installing-cardano-cli)
+- [Network Configuration](#network-configuration)
+- [Simple Payment Transaction](#simple-payment-transaction)
+- [Script Transactions](#script-transactions)
+- [Transaction Metadata](#transaction-metadata)
+- [Key Resources](#key-resources)
+
+### 3.2 [Off-Chain Development with Mesh SDK](#32-off-chain-development-with-mesh-sdk)
+- [Mesh SDK Overview](#mesh-sdk-overview)
+- [Setting Up Mesh SDK](#setting-up-mesh-sdk)
+- [Wallet Integration](#wallet-integration)
+- [Building Transactions](#building-transactions)
+- [Smart Contract Interactions](#smart-contract-interactions)
+- [Data Fetching and Queries](#data-fetching-and-queries)
+- [Key Resources](#key-resources-1)
+
+### 3.3 [Backend Integration](#33-backend-integration)
+- [Backend Architecture](#backend-architecture)
+- [Setting Up a Node.js Backend](#setting-up-a-nodejs-backend)
+- [Blockchain API Services](#blockchain-api-services)
+- [Transaction Handling Service](#transaction-handling-service)
+- [Webhook and Notification Systems](#webhook-and-notification-systems)
+- [Key Resources](#key-resources-2)
+
+### 3.4 [Smart Contract Deployment](#34-smart-contract-deployment)
+- [Preparing Contracts for Deployment](#preparing-contracts-for-deployment)
+- [Understanding Script References](#understanding-script-references)
+- [Deploying Reference Scripts](#deploying-reference-scripts)
+- [Using Reference Scripts](#using-reference-scripts)
+- [Deployment with Mesh SDK](#deployment-with-mesh-sdk)
+- [Version Control and Upgrades](#version-control-and-upgrades)
+- [Deployment Best Practices](#deployment-best-practices)
+- [Key Resources](#key-resources-3)
+
+### 3.5 [Frontend Integration Patterns](#35-frontend-integration-patterns)
+- [Component Architecture](#component-architecture)
+- [State Management](#state-management)
+- [Transaction Feedback Flow](#transaction-feedback-flow)
+- [Error Handling Strategies](#error-handling-strategies)
+- [Mobile Responsiveness](#mobile-responsiveness)
+- [Key Resources](#key-resources-4)
+
+### [Practice Exercises](#practice-exercises)
+- [Transaction Building](#transaction-building)
+- [Wallet Integration](#wallet-integration-1)
+- [Backend Development](#backend-development)
+- [Smart Contract Deployment](#smart-contract-deployment)
+- [Extended Challenge](#extended-challenge)
+
+### [Next Steps](#next-steps)
+
+### [Additional Resources](#additional-resources)
+
 ## 3.1 Transaction Building with cardano-cli
 
 Before diving into developer frameworks, it's essential to understand how Cardano transactions are constructed at a fundamental level using cardano-cli.

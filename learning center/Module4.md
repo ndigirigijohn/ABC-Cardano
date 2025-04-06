@@ -4,6 +4,49 @@ In this final module, you'll apply everything you've learned to build a complete
 
 ![Complete DApp Development](https://placehold.co/600x400)
 
+## Module Structure
+
+### 4.1 [Advanced Contract Patterns](#41-advanced-contract-patterns)
+- [State Machines](#state-machines)
+- [Multi-Party Contracts](#multi-party-contracts)
+- [Time-Locked Logic](#time-locked-logic)
+- [Reference Inputs and Inline Datums](#reference-inputs-and-inline-datums)
+- [Key Resources](#key-resources)
+
+### 4.2 [Frontend Development for Cardano](#42-frontend-development-for-cardano)
+- [Responsive UI Architecture](#responsive-ui-architecture)
+- [Wallet Connection Best Practices](#wallet-connection-best-practices)
+- [Transaction Feedback and Confirmation](#transaction-feedback-and-confirmation)
+- [Error Handling and Edge Cases](#error-handling-and-edge-cases)
+- [Key Resources](#key-resources-1)
+
+### 4.3 [Security and Optimization](#43-security-and-optimization)
+- [Contract Security Vulnerabilities](#contract-security-vulnerabilities)
+- [Execution Cost Optimization](#execution-cost-optimization)
+- [Transaction Size Optimization](#transaction-size-optimization)
+- [Security Best Practices](#security-best-practices)
+- [Key Resources](#key-resources-2)
+
+### 4.4 [Building a Complete DApp](#44-building-a-complete-dapp)
+- [Project Options](#project-options)
+- [Project Architecture](#project-architecture)
+- [Implementing the Smart Contracts](#implementing-the-smart-contracts)
+- [Backend Services Implementation](#backend-services-implementation)
+- [Frontend Implementation](#frontend-implementation)
+- [Project Completion and Deployment](#project-completion-and-deployment)
+- [Key Resources](#key-resources-3)
+
+### [Practice Exercises](#practice-exercises)
+- [NFT Marketplace](#nft-marketplace)
+- [Token Swap Application](#token-swap-application)
+- [DAO Voting Mechanism](#dao-voting-mechanism)
+- [Timelock Vault](#timelock-vault)
+- [Extended Challenge](#extended-challenge)
+
+### [Next Steps](#next-steps)
+
+### [Additional Resources](#additional-resources)
+
 ## 4.1 Advanced Contract Patterns
 
 To build sophisticated applications, you'll need to implement more complex smart contract patterns that can handle real-world use cases efficiently.
