@@ -31,7 +31,7 @@
   
   <!-- Modules section -->
   <rect x="340" y="110" width="390" height="70" fill="#ffffff" stroke="#e67e22" stroke-width="1" rx="5" ry="5"/>
-  <text x="350" y="130" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Imports & Modules</text>
+  <text x="350" y="130" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Imports Modules</text>
   <text x="350" y="150" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">use aiken/hash</text>
   <text x="350" y="170" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">use aiken/list</text>
   <text x="350" y="190" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">use my_project/types</text>
