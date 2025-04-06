@@ -4,6 +4,53 @@ In this module, you'll build a solid foundation in blockchain concepts, understa
 
 ![Cardano Development Environment](https://placehold.co/600x400)
 
+## Module Structure
+
+### 1.1 Understanding Blockchain Technology
+- Evolution of Blockchain
+- The Blockchain Trilemma
+- Key Concepts and Terminology
+
+### 1.2 Cardano Architecture
+- Multi-Layer Design
+- Ouroboros Proof-of-Stake
+- Native Assets
+
+### 1.3 The eUTxO Model
+- Understanding eUTxO
+- eUTxO vs. Account Model
+- Advantages and Considerations
+
+### 1.4 Setting Up Your Development Environment
+- Installing Required Tools
+  - Rust Toolchain
+  - Aiken CLI
+  - VS Code Setup
+- Cardano Node (Optional)
+
+### 1.5 Cardano Wallets & Testnet
+- Wallet Types
+- Setting Up a Testnet Wallet
+- CIP-30 Wallet Standard
+
+### 1.6 Introduction to Functional Programming
+- Key Concepts
+- Why Functional Programming for Blockchain
+- Aiken vs. Traditional Languages
+
+### 1.7 Writing Your First Aiken Code
+- Creating an Aiken Project
+- Project Structure
+- Simple Validator Example
+- Testing Your Code
+
+### Practice Exercises
+- Environment Setup
+- Wallet Creation
+- Simple Validator
+- eUTxO Analysis
+- Extended Challenge
+
 ## 1.1 Understanding Blockchain Technology
 
 ### Evolution of Blockchain
