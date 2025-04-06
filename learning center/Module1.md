@@ -4,13 +4,14 @@ In this module, you'll build a solid foundation in blockchain concepts, understa
 
 ![Cardano Development Environment](https://placehold.co/600x400)
 
+# Module 1: Cardano Fundamentals & Developer Environment Setup
 
 ## Module Structure
 
 ### 1.1 [Understanding Blockchain Technology](#11-understanding-blockchain-technology)
 - [Evolution of Blockchain](#evolution-of-blockchain)
 - [The Blockchain Trilemma](#the-blockchain-trilemma)
-- [Key Concepts and Terminology](#key-concepts-and-terminology)
+- [Key Concepts and Terminology](#key-resources)
 
 ### 1.2 [Cardano Architecture](#12-cardano-architecture)
 - [Multi-Layer Design](#multi-layer-design)
@@ -19,8 +20,8 @@ In this module, you'll build a solid foundation in blockchain concepts, understa
 
 ### 1.3 [The eUTxO Model](#13-the-eutxo-model)
 - [Understanding eUTxO](#understanding-eutxo)
-- [eUTxO vs. Account Model](#eutxo-vs-account-model)
-- [Advantages and Considerations](#advantages-of-eutxo)
+- [Advantages of eUTxO](#advantages-of-eutxo)
+- [Key Resources](#key-resources-1)
 
 ### 1.4 [Setting Up Your Development Environment](#14-setting-up-your-development-environment)
 - [Installing Required Tools](#installing-required-tools)
@@ -37,13 +38,13 @@ In this module, you'll build a solid foundation in blockchain concepts, understa
 ### 1.6 [Introduction to Functional Programming](#16-introduction-to-functional-programming)
 - [Key Concepts](#key-concepts)
 - [Why Functional Programming for Blockchain](#why-functional-programming-for-blockchain)
-- [Aiken vs. Traditional Languages](#aiken-vs-traditional-languages)
+- [Key Resources](#key-resources-2)
 
 ### 1.7 [Writing Your First Aiken Code](#17-writing-your-first-aiken-code)
 - [Creating an Aiken Project](#creating-an-aiken-project)
 - [Project Structure](#project-structure)
 - [Simple Validator Example](#simple-validator-example)
-- [Testing Your Code](#testing-your-code)
+- [Key Resources](#key-resources-3)
 
 ### [Practice Exercises](#practice-exercises)
 - [Environment Setup](#environment-setup)
@@ -51,6 +52,10 @@ In this module, you'll build a solid foundation in blockchain concepts, understa
 - [Simple Validator](#simple-validator)
 - [eUTxO Analysis](#eutxo-analysis)
 - [Extended Challenge](#extended-challenge)
+
+### [Next Steps](#next-steps)
+
+### [Additional Resources](#additional-resources)
 
 ## 1.1 Understanding Blockchain Technology
 
