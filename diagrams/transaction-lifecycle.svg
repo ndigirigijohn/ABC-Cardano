@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Cardano Transaction Lifecycle</text>
+  
+  <!-- Flow Chart -->
+  <!-- Step 1: Transaction Construction -->
+  <rect x="50" y="80" width="700" height="70" fill="#e6f7ff" stroke="#0099e6" stroke-width="2" rx="10" ry="10"/>
+  <text x="400" y="110" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">1. Transaction Construction</text>
+  
+  <rect x="70" y="150" width="160" height="100" fill="#ffffff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="150" y="175" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Off-chain</text>
+  <text x="150" y="195" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Select inputs</text>
+  <text x="150" y="215" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Create outputs</text>
+  <text x="150" y="235" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Attach metadata</text>
+  
+  <rect x="250" y="150" width="160" height="100" fill="#ffffff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="330" y="175" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Datums & Redeemers</text>
+  <text x="330" y="195" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Attach datum</text>
+  <text x="330" y="215" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Provide redeemers</text>
+  <text x="330" y="235" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Set validity interval</text>
+  
+  <rect x="430" y="150" width="160" height="100" fill="#ffffff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="510" y="175" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Fee Calculation</text>
+  <text x="510" y="195" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Estimate execution units</text>
+  <text x="510" y="215" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Calculate min fees</text>
+  <text x="510" y="235" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Balance transaction</text>
+  
+  <rect x="610" y="150" width="140" height="100" fill="#ffffff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="680" y="175" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Signing</text>
+  <text x="680" y="195" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Sign with private keys</text>
+  <text x="680" y="215" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Multi-sig if needed</text>
+  <text x="680" y="235" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Finalize witnesses</text>
+  
+  <!-- Step 2: Submission & Propagation -->
+  <rect x="50" y="260" width="340" height="70" fill="#f5eef8" stroke="#9b59b6" stroke-width="2" rx="10" ry="10"/>
+  <text x="220" y="290" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">2. Submission & Propagation</text>
+  
+  <rect x="70" y="340" width="140" height="80" fill="#ffffff" stroke="#9b59b6" stroke-width="1" rx="5" ry="5"/>
+  <text x="140" y="365" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Submit</text>
+  <text x="140" y="385" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Send to node</text>
+  <text x="140" y="405" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Enter mempool</text>
+  
+  <rect x="230" y="340" width="140" height="80" fill="#ffffff" stroke="#9b59b6" stroke-width="1" rx="5" ry="5"/>
+  <text x="300" y="365" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Propagate</text>
+  <text x="300" y="385" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Spread to network</text>
+  <text x="300" y="405" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Reach block producers</text>
+  
+  <!-- Step 3: Validation -->
+  <rect x="410" y="260" width="340" height="70" fill="#e1f2e1" stroke="#2ecc71" stroke-width="2" rx="10" ry="10"/>
+  <text x="580" y="290" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">3. Validation</text>
+  
+  <rect x="430" y="340" width="140" height="80" fill="#ffffff" stroke="#2ecc71" stroke-width="1" rx="5" ry="5"/>
+  <text x="500" y="365" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Script Execution</text>
+  <text x="500" y="385" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Run validators</text>
+  <text x="500" y="405" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Process datum/redeemers</text>
+  
+  <rect x="590" y="340" width="140" height="80" fill="#ffffff" stroke="#2ecc71" stroke-width="1" rx="5" ry="5"/>
+  <text x="660" y="365" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Validation</text>
+  <text x="660" y="385" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Verify balancing</text>
+  <text x="660" y="405" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">• Check all conditions</text>
+  
+  <!-- Step 4: Confirmation -->
+  <rect x="50" y="430" width="700" height="60" fill="#fff5e6" stroke="#e67e22" stroke-width="2" rx="10" ry="10"/>
+  <text x="400" y="460" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">4. Confirmation & Settlement</text>
+  
+  <!-- Arrows -->
+  <path d="M 400 150 L 400 120" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 220 260 L 220 230" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 580 260 L 580 230" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 400 430 L 400 400" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <path d="M 370 290 L 410 290" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrowhead Marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+</svg>

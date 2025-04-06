@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Aiken Testing Framework</text>
+  
+  <!-- Testing Process -->
+  <rect x="50" y="70" width="700" height="120" fill="#e6f7ff" stroke="#0099e6" stroke-width="2" rx="10" ry="10"/>
+  <text x="400" y="95" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Testing Workflow</text>
+  
+  <!-- Process steps -->
+  <rect x="80" y="115" width="120" height="60" fill="#ffffff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="140" y="140" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">1. Write Tests</text>
+  <text x="140" y="160" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">Test cases in .ak files</text>
+  
+  <rect x="240" y="115" width="120" height="60" fill="#ffffff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="300" y="140" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">2. Run Tests</text>
+  <text x="300" y="160" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">aiken check</text>
+  
+  <rect x="400" y="115" width="120" height="60" fill="#ffffff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="460" y="140" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">3. Analyze</text>
+  <text x="460" y="160" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">Review test results</text>
+  
+  <rect x="560" y="115" width="120" height="60" fill="#ffffff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="620" y="140" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">4. Debug/Fix</text>
+  <text x="620" y="160" font-family="Arial" font-size="12" text-anchor="middle" fill="#555">Refine implementation</text>
+  
+  <!-- Arrows -->
+  <path d="M 200 145 L 240 145" stroke="#333" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 360 145 L 400 145" stroke="#333" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 520 145 L 560 145" stroke="#333" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 620 175 L 620 195 L 140 195 L 140 175" stroke="#333" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrowhead Marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Test Types Section -->
+  <rect x="50" y="210" width="325" height="270" fill="#e1f2e1" stroke="#2ecc71" stroke-width="2" rx="10" ry="10"/>
+  <text x="212.5" y="235" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Test Types</text>
+  
+  <!-- Unit Tests -->
+  <rect x="70" y="250" width="285" height="70" fill="#ffffff" stroke="#2ecc71" stroke-width="1" rx="5" ry="5"/>
+  <text x="90" y="270" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Unit Tests</text>
+  <text x="90" y="290" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Test individual functions</text>
+  <text x="90" y="310" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Isolated functionality testing</text>
+  
+  <!-- Function Tests -->
+  <rect x="70" y="330" width="285" height="70" fill="#ffffff" stroke="#2ecc71" stroke-width="1" rx="5" ry="5"/>
+  <text x="90" y="350" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Validator Tests</text>
+  <text x="90" y="370" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Test complete validators</text>
+  <text x="90" y="390" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Simulate transaction validation</text>
+  
+  <!-- Integration Tests -->
+  <rect x="70" y="410" width="285" height="70" fill="#ffffff" stroke="#2ecc71" stroke-width="1" rx="5" ry="5"/>
+  <text x="90" y="430" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Property Tests</text>
+  <text x="90" y="450" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Test across multiple inputs</text>
+  <text x="90" y="470" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Verify properties hold true</text>
+  
+  <!-- Testing Syntax Section -->
+  <rect x="425" y="210" width="325" height="270" fill="#f5eef8" stroke="#9b59b6" stroke-width="2" rx="10" ry="10"/>
+  <text x="587.5" y="235" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Testing Syntax</text>
+  
+  <!-- Test code examples -->
+  <rect x="445" y="250" width="285" height="220" fill="#ffffff" stroke="#9b59b6" stroke-width="1" rx="5" ry="5"/>
+  
+  <text x="465" y="270" font-family="Arial" font-size="14" font-weight="bold" text-anchor="start" fill="#333">Test Examples:</text>
+  
+  <text x="465" y="295" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">test sum_empty_list() {</text>
+  <text x="465" y="315" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  sum([]) == 0</text>
+  <text x="465" y="335" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">}</text>
+  
+  <text x="465" y="365" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">test validate_signature() {</text>
+  <text x="465" y="385" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  let pubkey = #"deadbeef"</text>
+  <text x="465" y="405" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  let signature = #"beefdead"</text>
+  <text x="465" y="425" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  verify_signature(pubkey, signature)</text>
+  <text x="465" y="445" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">}</text>
+  
+  <!-- Run Command -->
+  <rect x="50" y="490" width="700" height="0" fill="none" rx="0" ry="0"/>
+  <text x="400" y="490" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Run Tests: aiken check</text>
+</svg>

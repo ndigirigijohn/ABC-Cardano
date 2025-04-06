@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Types of Validators in Cardano</text>
+  
+  <!-- Central Node -->
+  <circle cx="400" cy="180" r="70" fill="#e6ecf7" stroke="#3657b1" stroke-width="2"/>
+  <text x="400" y="175" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Validators</text>
+  <text x="400" y="195" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">Plutus Scripts</text>
+  
+  <!-- Spending Validator -->
+  <rect x="100" y="280" width="180" height="180" rx="10" ry="10" fill="#e6f7ff" stroke="#0099e6" stroke-width="2"/>
+  <text x="190" y="310" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Spending Validator</text>
+  <text x="190" y="335" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">Purpose: Control UTxO spending</text>
+  
+  <rect x="120" y="350" width="140" height="90" rx="5" ry="5" fill="#ffffff" stroke="#0099e6" stroke-width="1"/>
+  <text x="140" y="370" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• Time-locked funds</text>
+  <text x="140" y="390" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• Multi-signature</text>
+  <text x="140" y="410" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• Escrow contracts</text>
+  <text x="140" y="430" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• DeFi applications</text>
+  
+  <!-- Minting Policy -->
+  <rect x="310" y="280" width="180" height="180" rx="10" ry="10" fill="#f5eef8" stroke="#9b59b6" stroke-width="2"/>
+  <text x="400" y="310" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Minting Policy</text>
+  <text x="400" y="335" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">Purpose: Control token creation</text>
+  
+  <rect x="330" y="350" width="140" height="90" rx="5" ry="5" fill="#ffffff" stroke="#9b59b6" stroke-width="1"/>
+  <text x="350" y="370" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• NFT collections</text>
+  <text x="350" y="390" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• Fungible tokens</text>
+  <text x="350" y="410" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• Time-limited minting</text>
+  <text x="350" y="430" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• Controlled supply</text>
+  
+  <!-- Staking Validator -->
+  <rect x="520" y="280" width="180" height="180" rx="10" ry="10" fill="#e1f2e1" stroke="#2ecc71" stroke-width="2"/>
+  <text x="610" y="310" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Staking Validator</text>
+  <text x="610" y="335" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">Purpose: Control staking rewards</text>
+  
+  <rect x="540" y="350" width="140" height="90" rx="5" ry="5" fill="#ffffff" stroke="#2ecc71" stroke-width="1"/>
+  <text x="560" y="370" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• Delegation logic</text>
+  <text x="560" y="390" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• Reward distribution</text>
+  <text x="560" y="410" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• Governance voting</text>
+  <text x="560" y="430" font-family="Arial" font-size="12" text-anchor="start" fill="#333">• DAO operations</text>
+  
+  <!-- Connection lines -->
+  <line x1="400" y1="250" x2="400" y2="280" stroke="#9b59b6" stroke-width="2"/>
+  <line x1="400" y1="250" x2="190" y2="280" stroke="#0099e6" stroke-width="2"/>
+  <line x1="400" y1="250" x2="610" y2="280" stroke="#2ecc71" stroke-width="2"/>
+  
+  <!-- Aiken Implementation Note -->
+  <rect x="100" y="470" width="600" height="25" fill="none" stroke="none"/>
+  <text x="400" y="485" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">All validators in Aiken compile to Plutus Core for execution on Cardano</text>
+</svg>

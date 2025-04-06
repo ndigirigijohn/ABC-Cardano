@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Smart Contract Components</text>
+  <text x="400" y="70" font-family="Arial" font-size="16" font-style="italic" text-anchor="middle" fill="#666">Datum, Redeemer, and Script Context</text>
+
+  <!-- Validator Box -->
+  <rect x="250" y="100" width="300" height="340" fill="#e6f7ff" stroke="#0099e6" stroke-width="2" rx="10" ry="10"/>
+  <text x="400" y="130" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Validator</text>
+  
+  <!-- Datum Section -->
+  <rect x="270" y="150" width="260" height="90" fill="#ffffff" stroke="#3498db" stroke-width="2" rx="5" ry="5"/>
+  <text x="300" y="175" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#3498db">Datum</text>
+  <text x="300" y="195" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• On-chain data storage</text>
+  <text x="300" y="215" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Attached to UTxO at creation</text>
+  <text x="300" y="235" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Stores contract state or parameters</text>
+  
+  <!-- Example Code -->
+  <rect x="550" y="150" width="200" height="90" fill="#f0f8ff" stroke="#3498db" stroke-width="1" rx="5" ry="5"/>
+  <text x="560" y="170" font-family="Arial" font-size="12" font-weight="bold" text-anchor="start" fill="#333">Example:</text>
+  <text x="560" y="190" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#333">type Datum {</text>
+  <text x="560" y="210" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#333">  owner: ByteArray,</text>
+  <text x="560" y="230" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#333">  deadline: Int</text>
+  <text x="560" y="250" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#333">}</text>
+
+  <!-- Redeemer Section -->
+  <rect x="270" y="250" width="260" height="90" fill="#ffffff" stroke="#9b59b6" stroke-width="2" rx="5" ry="5"/>
+  <text x="300" y="275" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#9b59b6">Redeemer</text>
+  <text x="300" y="295" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Transaction-specific input</text>
+  <text x="300" y="315" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Provided when spending UTxO</text>
+  <text x="300" y="335" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Controls how the script executes</text>
+  
+  <!-- Example Code -->
+  <rect x="550" y="250" width="200" height="90" fill="#f5eef8" stroke="#9b59b6" stroke-width="1" rx="5" ry="5"/>
+  <text x="560" y="270" font-family="Arial" font-size="12" font-weight="bold" text-anchor="start" fill="#333">Example:</text>
+  <text x="560" y="290" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#333">type Redeemer {</text>
+  <text x="560" y="310" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#333">  action: Action,</text>
+  <text x="560" y="330" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#333">  signature: ByteArray</text>
+  <text x="560" y="350" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#333">}</text>
+
+  <!-- ScriptContext Section -->
+  <rect x="270" y="350" width="260" height="90" fill="#ffffff" stroke="#e67e22" stroke-width="2" rx="5" ry="5"/>
+  <text x="300" y="375" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#e67e22">Script Context</text>
+  <text x="300" y="395" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Transaction information</text>
+  <text x="300" y="415" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Access to inputs, outputs, metadata</text>
+  <text x="300" y="435" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Network details (time, slots, etc.)</text>
+  
+  <!-- Example Code -->
+  <rect x="550" y="350" width="200" height="90" fill="#fff5e6" stroke="#e67e22" stroke-width="1" rx="5" ry="5"/>
+  <text x="560" y="370" font-family="Arial" font-size="12" font-weight="bold" text-anchor="start" fill="#333">Example Access:</text>
+  <text x="560" y="390" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#333">ctx.transaction</text>
+  <text x="560" y="410" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#333">ctx.purpose</text>
+  <text x="560" y="430" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#333">ctx.transaction.validity_range</text>
+
+  <!-- Formula -->
+  <rect x="50" y="150" width="200" height="290" fill="#f9fafb" stroke="#6c757d" stroke-width="2" rx="10" ry="10"/>
+  <text x="150" y="180" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Validation Logic</text>
+  
+  <text x="150" y="220" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Validator Decision =</text>
+  <text x="150" y="260" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">fn(Datum, Redeemer, Context)</text>
+  <text x="150" y="300" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">→ True (Valid) or</text>
+  <text x="150" y="330" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">False (Invalid)</text>
+  
+  <text x="150" y="370" font-family="Arial" font-size="12" font-style="italic" text-anchor="middle" fill="#555">Validation must be</text>
+  <text x="150" y="390" font-family="Arial" font-size="12" font-style="italic" text-anchor="middle" fill="#555">deterministic</text>
+  <text x="150" y="410" font-family="Arial" font-size="12" font-style="italic" text-anchor="middle" fill="#555">(same inputs always</text>
+  <text x="150" y="430" font-family="Arial" font-size="12" font-style="italic" text-anchor="middle" fill="#555">produce same result)</text>
+  
+  <!-- Footer -->
+  <text x="400" y="470" font-family="Arial" font-size="12" font-style="italic" text-anchor="middle" fill="#555">All three components are passed to the validator function during transaction validation</text>
+</svg>

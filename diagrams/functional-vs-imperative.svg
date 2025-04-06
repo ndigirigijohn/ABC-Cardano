@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Functional vs. Imperative Programming</text>
+  
+  <!-- Divider -->
+  <line x1="400" y1="70" x2="400" y2="470" stroke="#ddd" stroke-width="2"/>
+  
+  <!-- Functional Column Header -->
+  <rect x="50" y="70" width="320" height="40" fill="#e6f7ff" stroke="#0099e6" stroke-width="2" rx="5" ry="5"/>
+  <text x="210" y="95" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Functional (Aiken)</text>
+  
+  <!-- Imperative Column Header -->
+  <rect x="430" y="70" width="320" height="40" fill="#ffecec" stroke="#e74c3c" stroke-width="2" rx="5" ry="5"/>
+  <text x="590" y="95" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Imperative (JavaScript)</text>
+  
+  <!-- Pure Functions Section -->
+  <rect x="50" y="130" width="320" height="70" fill="#ffffff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="60" y="150" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Pure Functions</text>
+  <text x="60" y="170" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Same input always gives same output</text>
+  <text x="60" y="190" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• No side effects (predictable)</text>
+  
+  <rect x="430" y="130" width="320" height="70" fill="#ffffff" stroke="#e74c3c" stroke-width="1" rx="5" ry="5"/>
+  <text x="440" y="150" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Procedures with Side Effects</text>
+  <text x="440" y="170" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• May modify state outside function scope</text>
+  <text x="440" y="190" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Results can vary with same inputs</text>
+  
+  <!-- Immutability Section -->
+  <rect x="50" y="210" width="320" height="70" fill="#ffffff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="60" y="230" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Immutability</text>
+  <text x="60" y="250" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Data cannot be changed after creation</text>
+  <text x="60" y="270" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Create new data instead of modifying</text>
+  
+  <rect x="430" y="210" width="320" height="70" fill="#ffffff" stroke="#e74c3c" stroke-width="1" rx="5" ry="5"/>
+  <text x="440" y="230" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Mutable State</text>
+  <text x="440" y="250" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Variables can be reassigned</text>
+  <text x="440" y="270" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Data can be modified in-place</text>
+  
+  <!-- Control Flow Section -->
+  <rect x="50" y="290" width="320" height="90" fill="#ffffff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="60" y="310" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Pattern Matching & Recursion</text>
+  <text x="60" y="330" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Pattern matching for flow control</text>
+  <text x="60" y="350" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Recursion instead of loops</text>
+  <text x="60" y="370" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Expression-based evaluation</text>
+  
+  <rect x="430" y="290" width="320" height="90" fill="#ffffff" stroke="#e74c3c" stroke-width="1" rx="5" ry="5"/>
+  <text x="440" y="310" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Loops & Conditionals</text>
+  <text x="440" y="330" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• for/while loops for iteration</text>
+  <text x="440" y="350" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• if/else statements for branching</text>
+  <text x="440" y="370" font-family="Arial" font-size="12" text-anchor="start" fill="#555">• Statement-based execution</text>
+  
+  <!-- Code Examples -->
+  <rect x="50" y="390" width="320" height="110" fill="#f0f8ff" stroke="#0099e6" stroke-width="1" rx="5" ry="5"/>
+  <text x="60" y="410" font-family="Arial" font-size="14" font-weight="bold" text-anchor="start" fill="#333">Sum List Example:</text>
+  <text x="60" y="430" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">fn sum(numbers: List<Int>) -> Int {</text>
+  <text x="60" y="450" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  when numbers is {</text>
+  <text x="60" y="470" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">    [] -> 0</text>
+  <text x="60" y="490" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">    [head, ..tail] -> head + sum(tail)</text>
+  <text x="60" y="510" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  }</text>
+  <text x="60" y="530" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">}</text>
+  
+  <rect x="430" y="390" width="320" height="110" fill="#ffecec" stroke="#e74c3c" stroke-width="1" rx="5" ry="5"/>
+  <text x="440" y="410" font-family="Arial" font-size="14" font-weight="bold" text-anchor="start" fill="#333">Sum Array Example:</text>
+  <text x="440" y="430" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">function sum(numbers) {</text>
+  <text x="440" y="450" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  let total = 0;</text>
+  <text x="440" y="470" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  for (let i = 0; i < numbers.length; i++) {</text>
+  <text x="440" y="490" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">    total += numbers[i];</text>
+  <text x="440" y="510" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  }</text>
+  <text x="440" y="530" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  return total;</text>
+  <text x="440" y="550" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">}</text>
+</svg>

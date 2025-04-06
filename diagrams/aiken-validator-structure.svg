@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Aiken Validator Structure</text>
+  
+  <!-- File structure -->
+  <rect x="50" y="70" width="240" height="400" fill="#e6f7ff" stroke="#0099e6" stroke-width="2" rx="10" ry="10"/>
+  <text x="170" y="95" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Project Structure</text>
+  
+  <!-- File tree -->
+  <text x="70" y="125" font-family="Arial" font-size="14" font-weight="bold" text-anchor="start" fill="#333">my_project/</text>
+  <text x="90" y="150" font-family="Arial" font-size="14" text-anchor="start" fill="#333">├── aiken.toml</text>
+  <text x="90" y="175" font-family="Arial" font-size="14" text-anchor="start" fill="#333">├── lib/</text>
+  <text x="90" y="200" font-family="Arial" font-size="14" text-anchor="start" fill="#555">│   └── my_project/</text>
+  <text x="90" y="225" font-family="Arial" font-size="14" text-anchor="start" fill="#555">│       ├── types.ak</text>
+  <text x="90" y="250" font-family="Arial" font-size="14" text-anchor="start" fill="#555">│       └── utils.ak</text>
+  <text x="90" y="275" font-family="Arial" font-size="14" text-anchor="start" fill="#333">└── validators/</text>
+  <text x="90" y="300" font-family="Arial" font-size="14" text-anchor="start" fill="#555">    ├── spending.ak</text>
+  <text x="90" y="325" font-family="Arial" font-size="14" text-anchor="start" fill="#555">    └── minting.ak</text>
+  
+  <text x="70" y="360" font-family="Arial" font-size="14" font-weight="bold" text-anchor="start" fill="#333">Build Output:</text>
+  <text x="90" y="385" font-family="Arial" font-size="14" text-anchor="start" fill="#333">└── plutus.json</text>
+  <text x="90" y="410" font-family="Arial" font-size="14" text-anchor="start" fill="#333">└── blueprint/</text>
+  <text x="90" y="435" font-family="Arial" font-size="14" text-anchor="start" fill="#555">    └── script.cbor</text>
+  
+  <!-- Validator Code Structure -->
+  <rect x="320" y="70" width="430" height="400" fill="#fff5e6" stroke="#e67e22" stroke-width="2" rx="10" ry="10"/>
+  <text x="535" y="95" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Validator Code Structure</text>
+  
+  <!-- Modules section -->
+  <rect x="340" y="110" width="390" height="70" fill="#ffffff" stroke="#e67e22" stroke-width="1" rx="5" ry="5"/>
+  <text x="350" y="130" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Imports & Modules</text>
+  <text x="350" y="150" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">use aiken/hash</text>
+  <text x="350" y="170" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">use aiken/list</text>
+  <text x="350" y="190" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">use my_project/types</text>
+  
+  <!-- Types section -->
+  <rect x="340" y="190" width="390" height="90" fill="#ffffff" stroke="#e67e22" stroke-width="1" rx="5" ry="5"/>
+  <text x="350" y="210" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Type Definitions</text>
+  <text x="350" y="230" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">type Datum {</text>
+  <text x="350" y="250" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  owner: ByteArray,</text>
+  <text x="350" y="270" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  deadline: Int</text>
+  <text x="350" y="290" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">}</text>
+  
+  <!-- Helper Functions section -->
+  <rect x="340" y="290" width="390" height="90" fill="#ffffff" stroke="#e67e22" stroke-width="1" rx="5" ry="5"/>
+  <text x="350" y="310" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#333">Helper Functions</text>
+  <text x="350" y="330" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">fn verify_signature(pubkey: ByteArray, sig: ByteArray) -> Bool {</text>
+  <text x="350" y="350" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  // verify signature logic</text>
+  <text x="350" y="370" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  True</text>
+  <text x="350" y="390" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">}</text>
+  
+  <!-- Validator Function section -->
+  <rect x="340" y="390" width="390" height="70" fill="#ffe6cc" stroke="#e67e22" stroke-width="2" rx="5" ry="5"/>
+  <text x="350" y="410" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#e67e22">Main Validator Function</text>
+  <text x="350" y="430" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">validator {</text>
+  <text x="350" y="450" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  fn spend(datum: Datum, redeemer: Redeemer, ctx: ScriptContext) -> Bool {</text>
+  <text x="350" y="470" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">    // validation logic</text>
+  <text x="350" y="490" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">  }</text>
+  <text x="350" y="510" font-family="Arial" font-size="12" font-family="monospace" text-anchor="start" fill="#555">}</text>
+  
+  <!-- Info arrow 1 -->
+  <path d="M 410 360 L 410 380 L 420 380 L 400 400 L 380 380 L 390 380 L 390 360 Z" fill="#e67e22"/>
+  
+  <!-- Info text -->
+  <text x="535" y="440" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#e67e22">Entry Point ↑</text>
+</svg>
