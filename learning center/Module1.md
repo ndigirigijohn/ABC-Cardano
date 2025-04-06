@@ -4,8 +4,6 @@ In this module, you'll build a solid foundation in blockchain concepts, understa
 
 ![Cardano Development Environment](https://placehold.co/600x400)
 
-# Module 1: Cardano Fundamentals & Developer Environment Setup
-
 ## Module Structure
 
 ### 1.1 [Understanding Blockchain Technology](#11-understanding-blockchain-technology)
