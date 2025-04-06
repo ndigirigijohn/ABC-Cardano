@@ -4,52 +4,53 @@ In this module, you'll build a solid foundation in blockchain concepts, understa
 
 ![Cardano Development Environment](https://placehold.co/600x400)
 
+
 ## Module Structure
 
-### 1.1 Understanding Blockchain Technology
-- Evolution of Blockchain
-- The Blockchain Trilemma
-- Key Concepts and Terminology
+### 1.1 [Understanding Blockchain Technology](#11-understanding-blockchain-technology)
+- [Evolution of Blockchain](#evolution-of-blockchain)
+- [The Blockchain Trilemma](#the-blockchain-trilemma)
+- [Key Concepts and Terminology](#key-concepts-and-terminology)
 
-### 1.2 Cardano Architecture
-- Multi-Layer Design
-- Ouroboros Proof-of-Stake
-- Native Assets
+### 1.2 [Cardano Architecture](#12-cardano-architecture)
+- [Multi-Layer Design](#multi-layer-design)
+- [Ouroboros Proof-of-Stake](#ouroboros-proof-of-stake)
+- [Native Assets](#native-assets)
 
-### 1.3 The eUTxO Model
-- Understanding eUTxO
-- eUTxO vs. Account Model
-- Advantages and Considerations
+### 1.3 [The eUTxO Model](#13-the-eutxo-model)
+- [Understanding eUTxO](#understanding-eutxo)
+- [eUTxO vs. Account Model](#eutxo-vs-account-model)
+- [Advantages and Considerations](#advantages-of-eutxo)
 
-### 1.4 Setting Up Your Development Environment
-- Installing Required Tools
-  - Rust Toolchain
-  - Aiken CLI
-  - VS Code Setup
-- Cardano Node (Optional)
+### 1.4 [Setting Up Your Development Environment](#14-setting-up-your-development-environment)
+- [Installing Required Tools](#installing-required-tools)
+  - [Rust Toolchain](#rust-toolchain)
+  - [Aiken CLI](#aiken-cli)
+  - [VS Code Setup](#vs-code-setup)
+- [Cardano Node (Optional)](#cardano-node-optional)
 
-### 1.5 Cardano Wallets & Testnet
-- Wallet Types
-- Setting Up a Testnet Wallet
-- CIP-30 Wallet Standard
+### 1.5 [Cardano Wallets & Testnet](#15-cardano-wallets--testnet)
+- [Wallet Types](#wallet-types)
+- [Setting Up a Testnet Wallet](#setting-up-a-testnet-wallet)
+- [CIP-30 Wallet Standard](#cip-30-wallet-standard)
 
-### 1.6 Introduction to Functional Programming
-- Key Concepts
-- Why Functional Programming for Blockchain
-- Aiken vs. Traditional Languages
+### 1.6 [Introduction to Functional Programming](#16-introduction-to-functional-programming)
+- [Key Concepts](#key-concepts)
+- [Why Functional Programming for Blockchain](#why-functional-programming-for-blockchain)
+- [Aiken vs. Traditional Languages](#aiken-vs-traditional-languages)
 
-### 1.7 Writing Your First Aiken Code
-- Creating an Aiken Project
-- Project Structure
-- Simple Validator Example
-- Testing Your Code
+### 1.7 [Writing Your First Aiken Code](#17-writing-your-first-aiken-code)
+- [Creating an Aiken Project](#creating-an-aiken-project)
+- [Project Structure](#project-structure)
+- [Simple Validator Example](#simple-validator-example)
+- [Testing Your Code](#testing-your-code)
 
-### Practice Exercises
-- Environment Setup
-- Wallet Creation
-- Simple Validator
-- eUTxO Analysis
-- Extended Challenge
+### [Practice Exercises](#practice-exercises)
+- [Environment Setup](#environment-setup)
+- [Wallet Creation](#wallet-creation)
+- [Simple Validator](#simple-validator)
+- [eUTxO Analysis](#eutxo-analysis)
+- [Extended Challenge](#extended-challenge)
 
 ## 1.1 Understanding Blockchain Technology
 
