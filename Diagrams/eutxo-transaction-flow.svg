@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">eUTxO Transaction Flow</text>
+  
+  <!-- Inputs Section -->
+  <rect x="50" y="80" width="200" height="320" fill="#e2f0ff" stroke="#3498db" stroke-width="2" rx="10" ry="10"/>
+  <text x="150" y="110" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Transaction Inputs</text>
+  
+  <!-- UTxO 1 -->
+  <rect x="70" y="130" width="160" height="70" fill="#ffffff" stroke="#3498db" stroke-width="1" rx="5" ry="5"/>
+  <text x="150" y="150" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">UTxO 1</text>
+  <text x="100" y="170" font-family="Arial" font-size="12" text-anchor="start" fill="#555">Address: User1</text>
+  <text x="100" y="190" font-family="Arial" font-size="12" text-anchor="start" fill="#555">Value: 100 ADA</text>
+  
+  <!-- UTxO 2 (Script) -->
+  <rect x="70" y="210" width="160" height="100" fill="#ffffff" stroke="#9b59b6" stroke-width="2" rx="5" ry="5"/>
+  <text x="150" y="230" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#9b59b6">UTxO 2 (Script)</text>
+  <text x="100" y="250" font-family="Arial" font-size="12" text-anchor="start" fill="#555">Address: Script</text>
+  <text x="100" y="270" font-family="Arial" font-size="12" text-anchor="start" fill="#555">Value: 50 ADA</text>
+  <text x="100" y="290" font-family="Arial" font-size="12" text-anchor="start" fill="#555">Datum: {locked: true}</text>
+  
+  <!-- UTxO 3 -->
+  <rect x="70" y="320" width="160" height="70" fill="#ffffff" stroke="#3498db" stroke-width="1" rx="5" ry="5"/>
+  <text x="150" y="340" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">UTxO 3</text>
+  <text x="100" y="360" font-family="Arial" font-size="12" text-anchor="start" fill="#555">Address: User1</text>
+  <text x="100" y="380" font-family="Arial" font-size="12" text-anchor="start" fill="#555">Value: 30 ADA</text>
+  
+  <!-- Validation Section -->
+  <rect x="300" y="80" width="200" height="320" fill="#fff5e6" stroke="#e67e22" stroke-width="2" rx="10" ry="10"/>
+  <text x="400" y="110" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Validation</text>
+  
+  <!-- Validator Box -->
+  <rect x="320" y="140" width="160" height="200" fill="#ffffff" stroke="#e67e22" stroke-width="2" rx="5" ry="5"/>
+  <text x="400" y="165" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Script Validator</text>
+  
+  <!-- Validator Components -->
+  <rect x="335" y="180" width="130" height="30" fill="#f7dc6f" stroke="#d4ac0d" stroke-width="1" rx="3" ry="3"/>
+  <text x="400" y="200" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Datum</text>
+  
+  <rect x="335" y="220" width="130" height="30" fill="#f7dc6f" stroke="#d4ac0d" stroke-width="1" rx="3" ry="3"/>
+  <text x="400" y="240" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Redeemer</text>
+  
+  <rect x="335" y="260" width="130" height="30" fill="#f7dc6f" stroke="#d4ac0d" stroke-width="1" rx="3" ry="3"/>
+  <text x="400" y="280" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Script Context</text>
+  
+  <text x="400" y="320" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#27ae60">✓ Valid</text>
+  
+  <!-- Outputs Section -->
+  <rect x="550" y="80" width="200" height="320" fill="#e6fff2" stroke="#27ae60" stroke-width="2" rx="10" ry="10"/>
+  <text x="650" y="110" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Transaction Outputs</text>
+  
+  <!-- New UTxO 1 -->
+  <rect x="570" y="130" width="160" height="70" fill="#ffffff" stroke="#3498db" stroke-width="1" rx="5" ry="5"/>
+  <text x="650" y="150" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">New UTxO 1</text>
+  <text x="600" y="170" font-family="Arial" font-size="12" text-anchor="start" fill="#555">Address: User2</text>
+  <text x="600" y="190" font-family="Arial" font-size="12" text-anchor="start" fill="#555">Value: 75 ADA</text>
+  
+  <!-- New UTxO 2 -->
+  <rect x="570" y="210" width="160" height="100" fill="#ffffff" stroke="#3498db" stroke-width="1" rx="5" ry="5"/>
+  <text x="650" y="230" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">New UTxO 2</text>
+  <text x="600" y="250" font-family="Arial" font-size="12" text-anchor="start" fill="#555">Address: User1</text>
+  <text x="600" y="270" font-family="Arial" font-size="12" text-anchor="start" fill="#555">Value: 100 ADA</text>
+  
+  <!-- Fee -->
+  <rect x="570" y="320" width="160" height="40" fill="#ffe6e6" stroke="#e74c3c" stroke-width="1" rx="5" ry="5"/>
+  <text x="650" y="345" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#e74c3c">Fee: 5 ADA</text>
+  
+  <!-- Arrows -->
+  <path d="M 250 200 L 300 200" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 500 200 L 550 200" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrowhead Marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Notes -->
+  <text x="400" y="430" font-family="Arial" font-size="12" font-style="italic" text-anchor="middle" fill="#555">
+    Transaction must balance: Sum(Inputs) = Sum(Outputs) + Fee
+  </text>
+  <text x="400" y="450" font-family="Arial" font-size="12" font-style="italic" text-anchor="middle" fill="#555">
+    Script validation is deterministic: same inputs always produce same result
+  </text>
+</svg>
