@@ -2,7 +2,7 @@
 
 In this module, you'll build a solid foundation in blockchain concepts, understand what makes Cardano unique, and set up a complete development environment for creating Cardano applications.
 
-![Cardano Development Environment](https://placehold.co/600x400)
+![Cardano Development Environment](/learning%20center/assets/M01.jpg)
 
 ## Module Structure
 
@@ -79,7 +79,19 @@ Blockchain technology has evolved through three generations, each addressing lim
 - Proof-of-stake consensus with significantly lower energy usage
 - Extended UTxO model for deterministic smart contracts
 
-![Blockchain Generations](https://placehold.co/600x400)
+<div class="video-container">
+    <iframe 
+        width="600" 
+        height="400" 
+        src="https://www.youtube.com/embed/bbMihIeO5nI" 
+        title="Blockchain Generations Explained" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
+
+<p><em>Video: Understanding the Three Generations of Blockchain Technology</em></p>
 
 ### The Blockchain Trilemma
 
