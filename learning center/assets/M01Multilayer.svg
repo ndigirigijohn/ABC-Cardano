@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background & Title -->
+  <rect width="800" height="500" fill="#f7f7f7" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Cardano Multi-Layer Architecture</text>
+
+  <!-- Main Layers -->
+  <g transform="translate(100, 90)">
+    <!-- Settlement Layer -->
+    <rect width="600" height="150" fill="#3D5A80" rx="8" ry="8" opacity="0.9"/>
+    <text x="300" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">Settlement Layer (CSL)</text>
+    
+    <!-- Settlement Layer Items -->
+    <g transform="translate(30, 55)">
+      <rect width="160" height="70" fill="#98C1D9" rx="6" ry="6"/>
+      <text x="80" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Ouroboros Consensus</text>
+      <text x="80" y="50" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Proof-of-Stake Protocol</text>
+    </g>
+    
+    <g transform="translate(220, 55)">
+      <rect width="160" height="70" fill="#98C1D9" rx="6" ry="6"/>
+      <text x="80" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Ledger</text>
+      <text x="80" y="50" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Transaction Accounting</text>
+    </g>
+    
+    <g transform="translate(410, 55)">
+      <rect width="160" height="70" fill="#98C1D9" rx="6" ry="6"/>
+      <text x="80" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Native Assets</text>
+      <text x="80" y="50" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Multi-Asset Support</text>
+    </g>
+
+    <!-- Computation Layer -->
+    <rect y="170" width="600" height="150" fill="#EE6C4D" rx="8" ry="8" opacity="0.9"/>
+    <text x="300" y="205" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">Computation Layer (CCL)</text>
+    
+    <!-- Computation Layer Items -->
+    <g transform="translate(30, 225)">
+      <rect width="160" height="70" fill="#F9A875" rx="6" ry="6"/>
+      <text x="80" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Plutus Core</text>
+      <text x="80" y="50" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Smart Contract Execution</text>
+    </g>
+    
+    <g transform="translate(220, 225)">
+      <rect width="160" height="70" fill="#F9A875" rx="6" ry="6"/>
+      <text x="80" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Validators</text>
+      <text x="80" y="50" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Transaction Validation</text>
+    </g>
+    
+    <g transform="translate(410, 225)">
+      <rect width="160" height="70" fill="#F9A875" rx="6" ry="6"/>
+      <text x="80" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Scripts</text>
+      <text x="80" y="50" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">On-Chain Logic</text>
+    </g>
+  </g>
+
+  <!-- Connection Between Layers -->
+  <g transform="translate(400, 240)">
+    <line x1="0" y1="0" x2="0" y2="20" stroke="#333" stroke-width="3" stroke-dasharray="5,5"/>
+    <circle cx="0" cy="0" r="5" fill="#333"/>
+    <circle cx="0" cy="20" r="5" fill="#333"/>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(100, 430)">
+    <rect width="20" height="20" fill="#3D5A80" rx="3" ry="3"/>
+    <text x="30" y="15" font-family="Arial, sans-serif" font-size="14">Settlement Layer</text>
+    
+    <rect x="200" width="20" height="20" fill="#EE6C4D" rx="3" ry="3"/>
+    <text x="230" y="15" font-family="Arial, sans-serif" font-size="14">Computation Layer</text>
+
+    <text x="0" y="65" font-family="Arial, sans-serif" font-size="12" font-style="italic">Each layer can be updated independently</text>
+  </g>
+
+  <!-- Benefits List -->
+  <g transform="translate(640, 400)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Benefits:</text>
+    <text x="0" y="25" font-family="Arial, sans-serif" font-size="12">• Separation of concerns</text>
+    <text x="0" y="45" font-family="Arial, sans-serif" font-size="12">• Flexible upgrades</text>
+    <text x="0" y="65" font-family="Arial, sans-serif" font-size="12">• Enhanced security</text>
+    <text x="0" y="85" font-family="Arial, sans-serif" font-size="12">• Better scalability</text>
+  </g>
+</svg>

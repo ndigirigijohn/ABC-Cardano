@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with subtle gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f9f9f9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1f1f1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="550" fill="url(#bgGradient)" rx="10" ry="10"/>
+
+  <!-- Title -->
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#333">Functional Programming Benefits for Blockchain</text>
+
+  <!-- Central FP Logo/Icon -->
+  <g transform="translate(400, 130)">
+    <circle cx="0" cy="0" r="70" fill="#3D5A80" opacity="0.9"/>
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="white">FP</text>
+    <text x="0" y="30" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Functional</text>
+    <text x="0" y="50" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Programming</text>
+  </g>
+
+  <!-- Connecting lines to benefits -->
+  <line x1="400" y1="190" x2="240" y2="250" stroke="#3D5A80" stroke-width="2"/>
+  <line x1="400" y1="190" x2="150" y2="340" stroke="#3D5A80" stroke-width="2"/>
+  <line x1="400" y1="190" x2="170" y2="430" stroke="#3D5A80" stroke-width="2"/>
+  <line x1="400" y1="190" x2="560" y2="250" stroke="#3D5A80" stroke-width="2"/>
+  <line x1="400" y1="190" x2="650" y2="340" stroke="#3D5A80" stroke-width="2"/>
+  <line x1="400" y1="190" x2="630" y2="430" stroke="#3D5A80" stroke-width="2"/>
+
+  <!-- Benefit Boxes -->
+  <!-- Predictability -->
+  <g transform="translate(100, 230)">
+    <rect width="280" height="100" fill="#EE6C4D" rx="10" ry="10" opacity="0.9"/>
+    <text x="140" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Predictability</text>
+    <line x1="40" y1="40" x2="240" y2="40" stroke="white" stroke-width="1" opacity="0.5"/>
+    <!-- Bullet points -->
+    <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="white">• Pure functions with consistent outputs</text>
+    <text x="20" y="80" font-family="Arial, sans-serif" font-size="14" fill="white">• Immutable data prevents side effects</text>
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="14" fill="white">• Easier reasoning about code behavior</text>
+  </g>
+
+  <!-- Security -->
+  <g transform="translate(10, 340)">
+    <rect width="280" height="100" fill="#98C1D9" rx="10" ry="10" opacity="0.9"/>
+    <text x="140" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Security</text>
+    <line x1="40" y1="40" x2="240" y2="40" stroke="white" stroke-width="1" opacity="0.5"/>
+    <!-- Bullet points -->
+    <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="white">• Type safety catches errors at compile time</text>
+    <text x="20" y="80" font-family="Arial, sans-serif" font-size="14" fill="white">• No unexpected state mutations</text>
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="14" fill="white">• Reduced attack surface from side effects</text>
+  </g>
+
+  <!-- Concurrency -->
+  <g transform="translate(30, 450)">
+    <rect width="280" height="100" fill="#3D5A80" rx="10" ry="10" opacity="0.9"/>
+    <text x="140" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Concurrency</text>
+    <line x1="40" y1="40" x2="240" y2="40" stroke="white" stroke-width="1" opacity="0.5"/>
+    <!-- Bullet points -->
+    <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="white">• No shared mutable state</text>
+    <text x="20" y="80" font-family="Arial, sans-serif" font-size="14" fill="white">• Pure functions can safely run in parallel</text>
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="14" fill="white">• Eliminates race conditions</text>
+  </g>
+
+  <!-- Formal Verification -->
+  <g transform="translate(420, 230)">
+    <rect width="280" height="100" fill="#5E7CE2" rx="10" ry="10" opacity="0.9"/>
+    <text x="140" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Formal Verification</text>
+    <line x1="40" y1="40" x2="240" y2="40" stroke="white" stroke-width="1" opacity="0.5"/>
+    <!-- Bullet points -->
+    <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="white">• Mathematically provable correctness</text>
+    <text x="20" y="80" font-family="Arial, sans-serif" font-size="14" fill="white">• Easier to analyze and verify</text>
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="14" fill="white">• Higher assurance for critical contracts</text>
+  </g>
+
+  <!-- Composability -->
+  <g transform="translate(510, 340)">
+    <rect width="280" height="100" fill="#72B01D" rx="10" ry="10" opacity="0.9"/>
+    <text x="140" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Composability</text>
+    <line x1="40" y1="40" x2="240" y2="40" stroke="white" stroke-width="1" opacity="0.5"/>
+    <!-- Bullet points -->
+    <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="white">• Functions as building blocks</text>
+    <text x="20" y="80" font-family="Arial, sans-serif" font-size="14" fill="white">• Higher-order functions for abstraction</text>
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="14" fill="white">• Cleaner code organization</text>
+  </g>
+
+  <!-- Maintainability -->
+  <g transform="translate(490, 450)">
+    <rect width="280" height="100" fill="#F4A261" rx="10" ry="10" opacity="0.9"/>
+    <text x="140" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Maintainability</text>
+    <line x1="40" y1="40" x2="240" y2="40" stroke="white" stroke-width="1" opacity="0.5"/>
+    <!-- Bullet points -->
+    <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="white">• Smaller, focused functions</text>
+    <text x="20" y="80" font-family="Arial, sans-serif" font-size="14" fill="white">• Explicit data flow and dependencies</text>
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="14" fill="white">• Easier testing with pure functions</text>
+  </g>
+
+  <!-- Blockchain-specific relevance footer -->
+  <rect x="100" y="515" width="600" height="30" fill="#E0FBFC" rx="5" ry="5" opacity="0.8"/>
+  <text x="400" y="535" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Critical for financial contracts where correctness and security are paramount</text>
+  
+  <!-- Cardano Reference -->
+  <rect x="320" y="80" width="160" height="30" fill="#0033AD" rx="5" ry="5" opacity="0.2"/>
+  <text x="400" y="100" font-family="Arial, sans-serif" font-size="14" font-style="italic" text-anchor="middle" fill="#0033AD">Why Aiken uses FP for Cardano</text>
+</svg>
