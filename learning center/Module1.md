@@ -746,5 +746,5 @@ Before moving on:
 - [Blockfrost API](https://blockfrost.io/)
 - [Maestro API](https://www.gomaestro.org/dapp-platform)
 - [Cardano Stack Exchange](https://cardano.stackexchange.com/)
-- [Awesome Cardano](https://github.com/CardanoUmbrella/awesome-cardano)dano/cardano-architecture)
+- [Awesome Cardano](https://github.com/CardanoUmbrella/awesome-cardano)
 - [Ouroboros Protocol Explained](https://iohk.io/en/blog/posts/2020/06/23/the-ouroboros-path-to-decentralization/)
