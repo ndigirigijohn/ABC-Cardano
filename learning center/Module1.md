@@ -79,19 +79,9 @@ Blockchain technology has evolved through three generations, each addressing lim
 - Proof-of-stake consensus with significantly lower energy usage
 - Extended UTxO model for deterministic smart contracts
 
-<div class="video-container">
-    <iframe 
-        width="600" 
-        height="400" 
-        src="https://www.youtube.com/embed/bbMihIeO5nI" 
-        title="Blockchain Generations Explained" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-    </iframe>
-</div>
+[![Watch the video](https://img.youtube.com/vi/bbMihIeO5nI/maxresdefault.jpg)](https://youtu.be/bbMihIeO5nI)
 
-<p><em>Video: Understanding the Three Generations of Blockchain Technology</em></p>
+### [Exploring The Blockchain Evolution](https://youtu.be/bbMihIeO5nI)
 
 ### The Blockchain Trilemma
 
