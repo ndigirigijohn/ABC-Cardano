@@ -572,5 +572,5 @@ Before moving on to the next module, make sure you can write and test different 
 - [Aiken Hello World Example](https://aiken-lang.org/example--hello-world)
 - [CIP-0057 Plutus Blueprint](https://github.com/cardano-foundation/CIPs/tree/master/CIP-0057)
 - [Aiken Repository Examples](https://github.com/aiken-lang/aiken/tree/main/examples)
-- [Cardano eUTxO Crash Course](https://aiken-lang.org/fundamentals--crash-course)
-- [Aiken Testing Documentation](https://aiken-lang.org/language-tour/testing)
+- [Cardano eUTxO Crash Course](https://aiken-lang.org/fundamentals/eutxo)
+- [Aiken Testing Documentation](https://aiken-lang.org/language-tour/tests)
