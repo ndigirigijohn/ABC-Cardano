@@ -4,6 +4,7 @@ In this module, you'll dive deep into Aiken programming and smart contract devel
 
 ![Aiken Smart Contract Development](/learning%20center/assets/M02.webp)
 
+
 ## Module Structure
 
 ### 2.1 [Deep Dive into the eUTxO Model](#21-deep-dive-into-the-eutxo-model)
@@ -23,33 +24,14 @@ In this module, you'll dive deep into Aiken programming and smart contract devel
 - [Types of Validators](#types-of-validators)
 - [Building a Spending Validator](#building-a-spending-validator)
 - [Creating a Minting Policy](#creating-a-minting-policy)
+- [Managing Optional Datum](#managing-optional-datum)
+- [Fallback Handler](#fallback-handler)
 - [Parameterized Contracts](#parameterized-contracts)
-- [Key Resources](#key-resources-2)
+- [Testing Validators](#testing-validators)
 
-### 2.4 [Testing Smart Contracts](#24-testing-smart-contracts)
-- [Unit Testing Basics](#unit-testing-basics)
-- [Creating Test Contexts](#creating-test-contexts)
-- [Testing Strategies](#testing-strategies)
-- [Running Tests](#running-tests)
-- [Key Resources](#key-resources-3)
-
-### 2.5 [Advanced Contract Patterns](#25-advanced-contract-patterns)
-- [State Machines](#state-machines)
-- [Multi-Party Contracts](#multi-party-contracts)
-- [Oracle Integration](#oracle-integration)
-- [Handling Time Constraints](#handling-time-constraints)
-- [Key Resources](#key-resources-4)
-
-### [Practice Exercises](#practice-exercises)
-- [Basic Spending Validator](#basic-spending-validator)
-- [NFT Minting Policy](#nft-minting-policy)
-- [State Machine Contract](#state-machine-contract)
-- [Multi-Party Escrow](#multi-party-escrow)
-- [Extended Challenge](#extended-challenge)
-
-### [Next Steps](#next-steps)
-
-### [Additional Resources](#additional-resources)
+### [Practice Exercises](#practice-exercises-1)
+### [Next Steps](#next-steps-1)
+### [Key Resources](#key-resources-3)
 
 ## 2.1 Deep Dive into the eUTxO Model
 
@@ -297,609 +279,298 @@ let answer = when result is {
 ### Key Resources:
 - [Aiken Language Tour](https://aiken-lang.org/language-tour)
 
-## 2.3 Writing Validators in Aiken
+# 2.3 Writing Validators in Aiken
 
 Now that we understand the language fundamentals, let's focus on writing validators—the core of Cardano smart contracts.
 
-### Validator Structure
+## Validator Structure
 
-All Aiken validators follow a common structure:
+In Aiken, validators are defined using the `validator` keyword and can contain one or more handler functions:
 
 ```rust
-use aiken/transaction.{ScriptContext}
-
-validator {
-  fn validate(datum: Datum, redeemer: Redeemer, context: ScriptContext) -> Bool {
-    // Validation logic goes here
-    True
+use cardano/assets.{PolicyId}
+use cardano/transaction.{Transaction}
+ 
+validator my_script {
+  mint(redeemer: MyRedeemer, policy_id: PolicyId, self: Transaction) {
+    todo @"validator logic goes here"
   }
 }
 ```
 
-The key components are:
-- **Datum**: State or data attached to the UTXO
-- **Redeemer**: Data provided by the spending transaction
-- **ScriptContext**: Information about the transaction and execution
-- **Return Value**: Boolean indicating whether validation passes
+As shown above, a validator is a named block that contains handlers. Each handler is a predicate function that must return `True` or `False`.
 
-### Types of Validators
+## Types of Validators
 
-Cardano supports three main types of validators:
-
-**1. Spending Validators**:
-Control how UTXOs at a script address can be spent.
+Cardano supports several validator types through different handler names:
 
 ```rust
-use aiken/transaction.{ScriptContext, Spend}
-
-validator {
-  fn spend_validator(datum: Data, redeemer: Data, context: ScriptContext) -> Bool {
-    when context.purpose is {
-      Spend(output_reference) -> {
-        // Validate spending conditions
-        True
-      }
-      _ -> False
-    }
+use cardano/address.{Credential}
+use cardano/assets.{PolicyId}
+use cardano/certificate.{Certificate}
+use cardano/governance.{ProposalProcedure, Voter}
+use cardano/transaction.{Transaction, OutputReference}
+ 
+validator my_script {
+  mint(redeemer: MyMintRedeemer, policy_id: PolicyId, self: Transaction) {
+    todo @"mint logic goes here"
+  }
+ 
+  spend(datum: Option<MyDatum>, redeemer: MySpendRedeemer, utxo: OutputReference, self: Transaction) {
+    todo @"spend logic goes here"
+  }
+ 
+  withdraw(redeemer: MyWithdrawRedeemer, account: Credential, self: Transaction) {
+    todo @"withdraw logic goes here"
+  }
+ 
+  publish(redeemer: MyPublishRedeemer, certificate: Certificate, self: Transaction) {
+    todo @"publish logic goes here"
+  }
+ 
+  vote(redeemer: MyVoteRedeemer, voter: Voter, self: Transaction) {
+    todo @"vote logic goes here"
+  }
+ 
+  propose(redeemer: MyProposeRedeemer, proposal: ProposalProcedure, self: Transaction) {
+    todo @"propose logic goes here"
   }
 }
 ```
 
-**2. Minting Policies**:
-Control the creation and destruction of native tokens.
+Each handler deals with a specific purpose:
+
+1. **mint** - For minting or burning native tokens
+2. **spend** - For controlling how UTXOs at a script address can be spent
+3. **withdraw** - For withdrawing staking rewards
+4. **publish** - For publishing delegation certificates
+5. **vote** - For voting on governance proposals
+6. **propose** - For constitution guardrails, executed when submitting governance proposals
+
+With the exception of `spend`, handlers take three arguments:
+- A redeemer (user-defined type)
+- A target (type depends on the purpose)
+- A transaction (the script context)
+
+The `spend` handler takes an additional first argument: an optional datum.
+
+## Building a Spending Validator
+
+Let's explore a complete spending validator example:
 
 ```rust
-use aiken/transaction.{ScriptContext, Mint}
-use aiken/transaction/value.{PolicyId}
-
-validator {
-  fn mint_policy(redeemer: Data, context: ScriptContext) -> Bool {
-    when context.purpose is {
-      Mint(policy_id) -> {
-        // Validate minting conditions
-        True
-      }
-      _ -> False
-    }
-  }
+use aiken/collection/list
+use aiken/crypto.{VerificationKeyHash}
+use aiken/primitive/string
+use cardano/transaction.{OutputReference, Transaction}
+ 
+pub type Datum {
+  owner: VerificationKeyHash,
 }
-```
-
-**3. Stake Validators**:
-Control delegation and stake-related operations.
-
-```rust
-use aiken/transaction.{ScriptContext, Stake}
-
-validator {
-  fn stake_validator(redeemer: Data, context: ScriptContext) -> Bool {
-    when context.purpose is {
-      Stake(stake_credential) -> {
-        // Validate staking conditions
-        True
-      }
-      _ -> False
-    }
-  }
+ 
+pub type Redeemer {
+  msg: ByteArray,
 }
-```
-
-![Validator Types](https://placehold.co/600x400)
-
-### Building a Spending Validator
-
-Let's build a spending validator that implements a simple vesting contract:
-
-```rust
-use aiken/transaction.{ScriptContext, Spend, Transaction}
-use aiken/transaction/credential.{VerificationKey, verify}
-use aiken/hash.{Blake2b_224, Hash}
-use aiken/interval.{Interval, after}
-use aiken/time.{PosixTime}
-
-type VerificationKeyHash = Hash<Blake2b_224, VerificationKey>
-
-type VestingDatum {
-  // Beneficiary who can claim funds
-  beneficiary: VerificationKeyHash,
-  // Unlock time when funds become available
-  unlock_time: PosixTime,
-}
-
-type VestingRedeemer {
-  Claim
-}
-
-validator {
-  fn vesting(datum: VestingDatum, redeemer: VestingRedeemer, ctx: ScriptContext) -> Bool {
-    when ctx.purpose is {
-      Spend(_) -> {
-        // Get the transaction being validated
-        let Transaction { validity_range, inputs, .. } = ctx.transaction
-        
-        // Check if we're after the unlock time
-        let time_condition = after(validity_range, datum.unlock_time)
-        
-        // Check if the beneficiary signed the transaction
-        let signed_by_beneficiary = transaction.is_signed_by(ctx.transaction, datum.beneficiary)
-        
-        // Both conditions must be met
-        time_condition && signed_by_beneficiary
-      }
-      _ -> False
-    }
+ 
+validator hello_world {
+  spend(
+    datum: Option<Datum>,
+    redeemer: Redeemer,
+    _own_ref: OutputReference,
+    self: Transaction,
+  ) {
+    trace @"redeemer": string.from_bytearray(redeemer.msg)
+ 
+    expect Some(Datum { owner }) = datum
+ 
+    let must_say_hello = redeemer.msg == "Hello, World!"
+ 
+    let must_be_signed = list.has(self.extra_signatories, owner)
+ 
+    must_say_hello? && must_be_signed?
   }
 }
 ```
 
 This validator ensures that:
-1. The transaction is only valid after the unlock time
-2. The beneficiary's signature is present in the transaction
+1. The datum contains an owner key hash
+2. The redeemer must contain the string "Hello, World!"
+3. The transaction must be signed by the owner
 
-### Creating a Minting Policy
+The `?` operator traces the expression if it evaluates to `False`, which helps with debugging.
 
-Now let's implement a simple NFT minting policy:
+## Creating a Minting Policy
+
+Here's an example of a simple minting policy that requires a specific UTxO to be consumed:
 
 ```rust
-use aiken/transaction.{ScriptContext, Mint, spend_input}
-use aiken/transaction/value.{AssetName}
-use aiken/hash.{Blake2b_224, Hash}
-use aiken/list
-
-type MintRedeemer {
-  // No special data needed for this example
-}
-
-validator {
-  fn nft_policy(redeemer: MintRedeemer, ctx: ScriptContext) -> Bool {
-    when ctx.purpose is {
-      Mint(policy_id) -> {
-        // Get the minted assets under this policy
-        let minted_assets = value.from_minted_value(ctx.transaction.mint)
-          |> value.tokens(policy_id)
-          |> map.to_list()
-        
-        // Check we're minting exactly one token with quantity 1
-        when minted_assets is {
-          [(asset_name, quantity)] -> {
-            // Ensure quantity is exactly 1
-            if quantity != 1 {
-              False
-            } else {
-              // Ensure NFT can only be minted once by requiring a specific UTXO
-              // (this makes it a true NFT)
-              let must_consume_utxo = #"deadbeef..."
-              
-              list.any(
-                ctx.transaction.inputs,
-                fn(input) { input.output_reference.transaction_id == must_consume_utxo }
-              )
-            }
-          }
-          _ -> False
-        }
-      }
-      _ -> False
-    }
+use aiken/collection/list
+use cardano/assets.{PolicyId}
+use cardano/transaction.{Transaction, OutputReference}
+ 
+validator my_script(utxo_ref: OutputReference) {
+  mint(redeemer: Data, policy_id: PolicyId, self: Transaction) {
+    expect list.any(
+      self.inputs,
+      fn (input) { input.output_reference == utxo_ref }
+    )
+    todo @"rest of the logic goes here"
   }
 }
 ```
 
-This policy ensures:
-1. Exactly one token is minted with quantity 1
-2. A specific UTXO must be consumed (ensuring the policy can only be used once)
+This minting policy ensures that a specific UTxO is consumed during minting, which guarantees the policy can only be used once (since UTxOs can only be spent once).
 
-### Parameterized Contracts
+## Managing Optional Datum
 
-Often, we want to reuse contract logic with different parameters. Aiken supports parameterized contracts through its blueprint system:
+Because the datum in a spending validator might not always be present, it's provided as an `Option<T>`. You can enforce that a datum is present using `expect`:
 
 ```rust
-use aiken/transaction.{ScriptContext}
-use aiken/hash.{Blake2b_224, Hash}
-use aiken/transaction/credential.{VerificationKey}
-
-type VerificationKeyHash = Hash<Blake2b_224, VerificationKey>
-
-// Parameters defined in the blueprint
-type MultiSigParams {
-  // Required number of signatures
-  required_signatures: Int,
-  // List of allowed signers
-  allowed_signers: List<VerificationKeyHash>,
-}
-
-validator(params: MultiSigParams) {
-  fn multi_sig(_datum: Data, _redeemer: Data, ctx: ScriptContext) -> Bool {
-    // Count how many of the allowed signers signed the transaction
-    let signature_count = 
-      list.count(
-        params.allowed_signers,
-        fn(signer) { transaction.is_signed_by(ctx.transaction, signer) }
-      )
-    
-    // Ensure we have enough signatures
-    signature_count >= params.required_signatures
+use cardano/transaction.{Transaction, OutputReference}
+ 
+validator my_script {
+  spend(datum_opt: Option<MyDatum>, redeemer: MyRedeemer, input: OutputReference, self: Transaction) {
+    expect Some(datum) = datum_opt
+    todo @"validator logic goes here"
   }
 }
 ```
 
-When compiling this contract, you can generate different instances by providing different parameters:
+## Fallback Handler
 
-```bash
-# Compile with parameters for a 2-of-3 multisig
-aiken build \
-  --blueprint-params '{"required_signatures": 2, "allowed_signers": ["abc...", "def...", "ghi..."]}'
-```
-
-### Key Resources:
-- [Aiken Validator Guide](https://aiken-lang.org/example--hello-world/validator)
-- [Minting Policies](https://aiken-lang.org/example--nft/minting)
-- [Parameterized Contracts](https://aiken-lang.org/language-tour/parameters)
-
-## 2.4 Testing Smart Contracts
-
-Testing is crucial for smart contract development to avoid costly bugs. Aiken includes a built-in testing framework.
-
-### Unit Testing Basics
-
-Aiken tests are defined using the `test` keyword:
+For cases where you need to handle multiple purposes or want to catch unhandled purposes, you can use a fallback handler:
 
 ```rust
-use validators/vesting
-
-// Simple test function
-test vesting_after_deadline() {
-  // Create test data
-  let datum = VestingDatum {
-    beneficiary: #"deadbeef...",
-    unlock_time: 1000,
+use cardano/assets.{PolicyId}
+use cardano/transaction.{Transaction, OutputReference}
+use cardano/script_context.{ScriptContext}
+ 
+validator my_multi_purpose_script {
+  mint(redeemer: MyRedeemer, policy_id: PolicyId, self: Transaction) {
+    todo @"validator logic goes here"
   }
-  
-  let redeemer = Claim
-  
-  // Create a script context where the current time is after unlock_time
-  let context = create_test_context(
-    validity_range: interval.after(1500),
-    signatories: [#"deadbeef..."],
+ 
+  spend(datum_opt: Option<MyDatum>, redeemer: MyRedeemer, input: OutputReference, self: Transaction) {
+    expect Some(datum) = datum_opt
+    todo @"validator logic goes here"
+  }
+ 
+  else(_ctx: ScriptContext) {
+    fail @"unsupported purpose"
+  }
+}
+```
+
+When no fallback is explicitly specified, Aiken defaults to a validator that always rejects.
+
+## Parameterized Contracts
+
+Validators can take parameters, which represent configuration elements provided when creating an instance of the validator:
+
+```rust
+use aiken/collection/list
+use cardano/assets.{PolicyId}
+use cardano/transaction.{Transaction, OutputReference}
+ 
+validator my_script(utxo_ref: OutputReference) {
+  mint(redeemer: Data, policy_id: PolicyId, self: Transaction) {
+    expect list.any(
+      self.inputs,
+      fn (input) { input.output_reference == utxo_ref }
+    )
+    todo @"rest of the logic goes here"
+  }
+}
+```
+
+In this example, the validator is parameterized with a UTxO reference to ensure uniqueness of execution.
+
+## Testing Validators
+
+Testing is an essential part of smart contract development. Here's how to test a validator:
+
+```rust
+test hello_world_example() {
+  let datum =
+    Datum { owner: #"00000000000000000000000000000000000000000000000000000000" }
+ 
+  let redeemer = Redeemer { msg: "Hello, World!" }
+ 
+  let placeholder_utxo = OutputReference { transaction_id: "", output_index: 0 }
+ 
+  hello_world.spend(
+    Some(datum),
+    redeemer,
+    placeholder_utxo,
+    Transaction { ..transaction.placeholder, extra_signatories: [datum.owner] },
   )
-  
-  // Verify the validator returns True
-  vesting.validate(datum, redeemer, context) == True
-}
-
-// Test expected failure
-test vesting_before_deadline_fails() {
-  // Similar setup but with time before unlock_time
-  let datum = VestingDatum {
-    beneficiary: #"deadbeef...",
-    unlock_time: 2000,
-  }
-  
-  let context = create_test_context(
-    validity_range: interval.before(1500),
-    signatories: [#"deadbeef..."],
-  )
-  
-  // Verify the validator returns False
-  vesting.validate(datum, Claim, context) == False
 }
 ```
 
-### Creating Test Contexts
+This test checks if our `hello_world` validator correctly validates when provided with the proper inputs.
 
-To test validators effectively, you need to create realistic `ScriptContext` values:
+Running the test with `aiken check` will execute the validator and report on success or failure, including any traces and execution costs:
 
-```rust
-fn create_test_context(
-  validity_range: Interval<PosixTime>,
-  signatories: List<VerificationKeyHash>,
-) -> ScriptContext {
-  ScriptContext {
-    transaction: Transaction {
-      inputs: [],
-      outputs: [],
-      fee: value.zero(),
-      validity_range: validity_range,
-      signatories: signatories,
-      mint: value.from_asset("", "", 0),
-      // Other fields...
-    },
-    purpose: Spend(OutputReference { transaction_id: #"", output_index: 0 }),
-  }
-}
 ```
-
-### Testing Strategies
-
-Apply these strategies for comprehensive testing:
-
-**1. Test Happy Paths**:
-- Validate expected successful conditions
-- Cover all valid use cases
-
-**2. Test Edge Cases**:
-- Boundary values (e.g., exactly at unlock time)
-- Empty lists, zero values
-- Maximum input sizes
-
-**3. Test Failure Modes**:
-- Ensure validation fails when it should
-- Verify that proper security checks prevent unauthorized actions
-
-**4. Test Interaction Patterns**:
-- Multiple transactions forming a sequence
-- Competing transactions attempting to use the same resource
-
-### Running Tests
-
-Execute tests using the Aiken CLI:
-
-```bash
-# Run all tests
-aiken check
-
-# Run tests with more verbose output
-aiken check -v
-
-# Run specific test file
-aiken check tests/vesting_test.ak
+❯ aiken check
+        
+  ┍━ hello_world ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  │ PASS [mem: 32451, cpu: 11921833] hello_world_example
+  │ · with traces
+  │ | redeemer: Hello, World!
+  ┕━━━━━━━━━━━━━━━━━━━━━━━ 1 tests | 1 passed | 0 failed
 ```
-
-![Testing Output](https://placehold.co/600x400)
-
-### Key Resources:
-- [Aiken Testing Guide](https://aiken-lang.org/language-tour/testing)
-- [Test Utilities](https://aiken-lang.org/language-tour/packages)
-- [Testing Best Practices](https://aiken-lang.org/example--best-practices/testing)
-
-## 2.5 Advanced Contract Patterns
-
-Now let's explore some advanced patterns that are useful for real-world applications.
-
-### State Machines
-
-Many contracts can be modeled as state machines, where assets move through defined states:
-
-```rust
-use aiken/transaction.{ScriptContext, Spend}
-
-type State {
-  Created
-  Active
-  Completed
-  Cancelled
-}
-
-type StateMachineDatum {
-  current_state: State,
-  owner: ByteArray,
-  // Other state data...
-}
-
-type StateTransition {
-  Activate
-  Complete
-  Cancel
-}
-
-validator {
-  fn state_machine(datum: StateMachineDatum, redeemer: StateTransition, ctx: ScriptContext) -> Bool {
-    when ctx.purpose is {
-      Spend(_) -> {
-        // Ensure owner signed the transaction
-        let signed_by_owner = transaction.is_signed_by(ctx.transaction, datum.owner)
-        
-        // Validate state transition
-        let valid_transition = when (datum.current_state, redeemer) is {
-          // Valid transitions
-          (Created, Activate) -> True
-          (Active, Complete) -> True
-          (Active, Cancel) -> True
-          // Any other transition is invalid
-          _ -> False
-        }
-        
-        // Both conditions must be met
-        signed_by_owner && valid_transition
-      }
-      _ -> False
-    }
-  }
-}
-```
-
-### Multi-Party Contracts
-
-Contracts involving multiple participants require careful design:
-
-```rust
-use aiken/transaction.{ScriptContext, Spend}
-
-type Party {
-  key_hash: ByteArray,
-  role: Role,
-}
-
-type Role {
-  Buyer
-  Seller
-  Arbiter
-}
-
-type EscrowDatum {
-  parties: List<Party>,
-  item_price: Int,
-  deposit_paid: Bool,
-  item_delivered: Bool,
-  dispute_raised: Bool,
-}
-
-type EscrowAction {
-  PayDeposit
-  ConfirmDelivery
-  RaiseDispute
-  ResolveDispute { in_favor_of_buyer: Bool }
-  Cancel
-}
-
-validator {
-  fn escrow(datum: EscrowDatum, action: EscrowAction, ctx: ScriptContext) -> Bool {
-    when ctx.purpose is {
-      Spend(_) -> {
-        // Find specific parties by role
-        let buyer = find_party_by_role(datum.parties, Buyer)
-        let seller = find_party_by_role(datum.parties, Seller)
-        let arbiter = find_party_by_role(datum.parties, Arbiter)
-        
-        // Check who signed the transaction
-        let buyer_signed = transaction.is_signed_by(ctx.transaction, buyer.key_hash)
-        let seller_signed = transaction.is_signed_by(ctx.transaction, seller.key_hash)
-        let arbiter_signed = transaction.is_signed_by(ctx.transaction, arbiter.key_hash)
-        
-        // Validate action
-        when action is {
-          PayDeposit -> buyer_signed && !datum.deposit_paid
-          ConfirmDelivery -> buyer_signed && datum.deposit_paid && !datum.item_delivered
-          RaiseDispute -> buyer_signed && datum.deposit_paid && !datum.dispute_raised
-          ResolveDispute { in_favor_of_buyer } -> arbiter_signed && datum.dispute_raised
-          Cancel -> {
-            if datum.deposit_paid {
-              buyer_signed && seller_signed  // Both must agree after deposit
-            } else {
-              buyer_signed  // Only buyer can cancel before deposit
-            }
-          }
-        }
-      }
-      _ -> False
-    }
-  }
-}
-```
-
-### Oracle Integration
-
-Smart contracts often need off-chain data, which can be provided through oracles:
-
-```rust
-use aiken/transaction.{ScriptContext, Spend}
-
-type OracleFeed {
-  oracle_public_key: ByteArray,
-  last_update_time: Int,
-  exchange_rate: Int,  // Price in lovelace (millionths of ADA)
-}
-
-type PriceDatum {
-  oracle_feed: OracleFeed,
-  base_price: Int,
-  // Other data...
-}
-
-type BuyAction {
-  // Action data...
-}
-
-validator {
-  fn price_controlled_purchase(datum: PriceDatum, action: BuyAction, ctx: ScriptContext) -> Bool {
-    when ctx.purpose is {
-      Spend(_) -> {
-        // Check oracle signature
-        let oracle_signed = transaction.is_signed_by(ctx.transaction, datum.oracle_feed.oracle_public_key)
-        
-        // Check oracle data is recent (within last 24 hours)
-        let current_time = interval.start(ctx.transaction.validity_range)
-        let oracle_data_fresh = current_time - datum.oracle_feed.last_update_time < 86400000
-        
-        // Calculate price in ADA based on oracle exchange rate
-        let price_in_lovelace = datum.base_price * datum.oracle_feed.exchange_rate
-        
-        // Check payment is sufficient
-        let payment_sufficient = validate_payment(ctx, price_in_lovelace)
-        
-        // All conditions must be met
-        oracle_signed && oracle_data_fresh && payment_sufficient
-      }
-      _ -> False
-    }
-  }
-}
-```
-
-### Handling Time Constraints
-
-Time-based logic is common in contracts:
-
-```rust
-use aiken/transaction.{ScriptContext}
-use aiken/interval.{Interval, before, after, during}
-use aiken/time.{PosixTime}
-
-type TimeConstraint {
-  NotBefore(PosixTime)
-  NotAfter(PosixTime)
-  Between(PosixTime, PosixTime)
-}
-
-fn validate_time_constraint(constraint: TimeConstraint, validity_range: Interval<PosixTime>) -> Bool {
-  when constraint is {
-    NotBefore(min_time) -> after(validity_range, min_time)
-    NotAfter(max_time) -> before(validity_range, max_time)
-    Between(min_time, max_time) -> {
-      after(validity_range, min_time) && before(validity_range, max_time)
-    }
-  }
-}
-```
-
-### Key Resources:
-- [State Machine Example](https://aiken-lang.org/example--state-machine)
-- [Multi-Signature Patterns](https://aiken-lang.org/example--multi-sig)
-- [Oracle Integration Guide](https://github.com/aiken-lang/aiken/tree/main/examples/oracles)
 
 ## Practice Exercises
 
 1. **Basic Spending Validator**:
-   - Create a spending validator that requires a specific signature
-   - Write tests for both successful and failed validation
-   - Compile the validator and examine the output
+   - Create a spending validator similar to the "Hello, World!" example, but require multiple signatures
+   - Add a time constraint that only allows spending after a certain timestamp
+   - Write tests for both successful and failed validation scenarios
 
 2. **NFT Minting Policy**:
-   - Implement a minting policy for an NFT collection
-   - Add metadata handling for the NFTs
-   - Limit minting to a specific quantity or time period
+   - Implement a minting policy that can only mint once using the UTxO reference technique
+   - Add a condition that limits the total number of tokens that can be minted
+   - Ensure the policy enforces a specific naming convention for the tokens
 
-3. **State Machine Contract**:
-   - Design a simple auction contract as a state machine
-   - Implement state transitions for bidding and ending the auction
-   - Test all valid and invalid state transitions
+3. **Multi-Purpose Validator**:
+   - Create a validator with both spend and mint handlers
+   - Implement a fallback handler that rejects other purposes with a meaningful error message
+   - Write tests that verify the behavior of each handler
 
-4. **Multi-Party Escrow**:
-   - Extend the escrow example with refund mechanisms
-   - Add a timeout for automatic resolution
-   - Test different scenarios including disputes
+4. **Parameterized Contract**:
+   - Design a token vesting contract that accepts parameters for the beneficiary and unlock time
+   - Implement the spend validator logic to enforce the vesting schedule
+   - Test the contract with different parameter values
 
-5. **Extended Challenge**:
-   - Create a token-controlled validator (one that requires specific tokens to use)
-   - Implement a voting mechanism with token weights
-   - Write comprehensive tests for all edge cases
+5. **Debugging with Traces**:
+   - Take one of the above exercises and add detailed traces
+   - Use the trace-if-false operator `?` on all logical conditions
+   - Run the tests with `aiken check` and analyze the trace output
 
 ## Next Steps
 
-Congratulations on completing Module 2! You now have a solid understanding of Aiken smart contract development. In the next module, you'll learn how to interact with your contracts from off-chain code using Mesh SDK and cardano-cli.
+After mastering the basics of validator writing, you should:
 
-Before moving on:
-- Make sure you understand the eUTxO model and how it affects contract design
-- Verify that you can write and test validators for different use cases
-- Review any patterns that were challenging to implement
-- Experiment with combining different patterns into more complex contracts
+1. **Explore Advanced Testing**: Learn to create more sophisticated test scenarios, including testing edge cases and failure modes.
 
-## Additional Resources
+2. **Understand Plutus Core**: Gain a deeper understanding of the compilation target and how your Aiken code translates to executable on-chain code.
 
-- [Aiken Documentation](https://aiken-lang.org/)
-- [Aiken GitHub Repository](https://github.com/aiken-lang/aiken)
-- [Aiken Examples](https://aiken-lang.org/examples)
-- [Cardano Developer Portal](https://developers.cardano.org/)
-- [Plutus Core Specification](https://hydra.iohk.io/build/7654130/download/1/plutus-core-specification.pdf)
-- [Marlowe: Alternative Smart Contract Language](https://marlowe.iohk.io/)
-- [Cardano Blockchain Insights](https://insights.adastat.net/)
+3. **Study Contract Composition**: Learn how multiple validators can interact within a transaction to create complex applications.
+
+4. **Investigate Common Patterns**: Familiarize yourself with established patterns like state machines, oracles, and multi-signature schemes.
+
+5. **Experiment with Integration**: Try building a simple end-to-end application that includes both on-chain validators and off-chain code.
+
+6. **Review Security Considerations**: Study common security pitfalls and best practices for secure smart contract development.
+
+Before moving on to the next module, make sure you can write and test different types of validators and understand how they interact with the Cardano ledger.
+
+## Key Resources
+
+- [Aiken Language Tour - Validators](https://aiken-lang.org/language-tour/validators)
+- [Aiken Hello World Example](https://aiken-lang.org/example--hello-world)
+- [CIP-0057 Plutus Blueprint](https://github.com/cardano-foundation/CIPs/tree/master/CIP-0057)
+- [Aiken Repository Examples](https://github.com/aiken-lang/aiken/tree/main/examples)
+- [Cardano eUTxO Crash Course](https://aiken-lang.org/fundamentals--crash-course)
+- [Aiken Testing Documentation](https://aiken-lang.org/language-tour/testing)
