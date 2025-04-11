@@ -2,7 +2,7 @@
 
 In this module, you'll dive deep into Aiken programming and smart contract development on Cardano. Building on the fundamentals from Module 1, you'll learn how to create, test, and deploy various types of validators for real-world use cases.
 
-![Aiken Smart Contract Development](https://placehold.co/600x400)
+![Aiken Smart Contract Development](/learning%20center/assets/M02.webp)
 
 ## Module Structure
 
@@ -84,7 +84,7 @@ A Cardano transaction consists of several key components:
 - Specified as slot numbers or POSIX time
 - Enables time-based contract conditions
 
-![Detailed Transaction Structure](https://placehold.co/600x400)
+![Detailed Transaction Structure](/learning%20center/assets/M02EUTXO.png)
 
 ### Script Execution Process
 
@@ -129,8 +129,8 @@ Understanding these patterns is crucial for designing effective smart contracts 
 
 ### Key Resources:
 - [eUTxO Deep Dive](https://ucarecdn.com/3da33f2f-73ac-4c9b-844b-f215dcce0628/EUTXOhandbook_for_EC.pdf)
-- [Concurrency Solutions in Cardano](https://iohk.io/en/blog/posts/2021/09/10/concurrency-and-all-that-cardano-smart-contracts-and-the-eutxo-model/)
-- [Transaction Validation Rules](https://docs.cardano.org/plutus/transaction-validation/)
+- [Concurrency Solutions in Cardano](https://docs.cardano.org/about-cardano/explore-more/concurrency#:~:text=Concurrency%20refers%20to%20the%20ability,operations%20without%20causing%20system%20failures.)
+- [Transaction Validation Rules](https://www.cardanesia.com/post/how-transactions-being-validated-on-cardano-blockchain)
 
 ## 2.2 Aiken Language Fundamentals
 
@@ -179,7 +179,7 @@ type Action {
 - Type inference for cleaner code
 - Generic types for reusable components
 
-![Aiken Type System Examples](https://placehold.co/600x400)
+![Aiken Type System Examples](/learning%20center/assets/M02Aiken.png)
 
 ### Functions and Control Flow
 
@@ -295,9 +295,7 @@ let answer = when result is {
 ```
 
 ### Key Resources:
-- [Aiken Language Tour](https://aiken-lang.org/language-tour/getting-started)
-- [Type System Documentation](https://aiken-lang.org/language-tour/built-in-types)
-- [Pattern Matching Guide](https://aiken-lang.org/language-tour/pattern-matching)
+- [Aiken Language Tour](https://aiken-lang.org/language-tour)
 
 ## 2.3 Writing Validators in Aiken
 
